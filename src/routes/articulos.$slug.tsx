@@ -79,7 +79,7 @@ function ArticlePage() {
       <main className="flex-1">
         <article>
           {/* Article header */}
-          <header className="max-w-3xl mx-auto px-6 pt-12 md:pt-20 pb-10">
+          <header className="max-w-3xl mx-auto px-6 pt-32 md:pt-40 pb-10">
             <Link
               to="/articulos"
               className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors mb-10"
