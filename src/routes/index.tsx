@@ -8,13 +8,13 @@ import portrait from "@/assets/oswaldo-portrait.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Oswaldo Smarrelli — Criterios y propósitos" },
+      { title: "Oswaldo Smarrelli" },
       {
         name: "description",
         content:
           "Columnista de opinión y consultor estratégico. Análisis sobre política, sociedad y estrategia desde una perspectiva humanista y pragmática.",
       },
-      { property: "og:title", content: "Oswaldo Smarrelli — Criterios y propósitos" },
+      { property: "og:title", content: "Oswaldo Smarrelli" },
       {
         property: "og:description",
         content:
