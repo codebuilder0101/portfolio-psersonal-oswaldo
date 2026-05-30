@@ -24,13 +24,13 @@ export const Route = createFileRoute("/contacto")({
 function ContactoPage() {
   return (
     <div className="min-h-screen flex flex-col bg-ink">
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative bg-ink text-white">
-          <SiteHeader variant="dark" />
           {/* TODO: drop the desk/coffee photo here as the hero background. */}
           <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink to-brand-blue/30" />
-          <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-20 md:pt-48 md:pb-28">
+          <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
             <h1 className="font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6">
               HABLEMOS
             </h1>

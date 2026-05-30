@@ -27,13 +27,13 @@ function ArticulosPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative bg-ink text-white">
-          <SiteHeader variant="dark" />
           {/* TODO: drop a city skyline photo here as the hero background. */}
           <div className="absolute inset-0 bg-gradient-to-br from-ink via-brand-blue/40 to-ink opacity-90" />
-          <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-20 md:pt-44 md:pb-28 text-center">
+          <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
             <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto">
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>

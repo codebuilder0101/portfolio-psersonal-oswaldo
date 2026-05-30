@@ -51,11 +51,11 @@ const stats = [
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative">
-          <SiteHeader variant="light" />
-          <div className="grid md:grid-cols-2 items-stretch pt-24 md:pt-0">
+          <div className="grid md:grid-cols-2 items-stretch">
             <div className="md:min-h-[88vh] bg-muted">
               <img
                 src={portrait}

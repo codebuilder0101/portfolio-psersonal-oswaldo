@@ -2,15 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
-// TODO: replace with the provided "Sobre mí" hero photo (at the desk).
-import portrait from "@/assets/oswaldo-portrait.jpg";
-
-// Drop images into src/assets/gallery/ and they appear in the GALERÍA grid automatically.
-const galleryModules = import.meta.glob(
-  "../assets/gallery/*.{jpg,jpeg,png,webp,avif}",
-  { eager: true, query: "?url", import: "default" }
-);
-const galleryImages = Object.values(galleryModules) as string[];
+import { galleryImages } from "@/lib/gallery";
+import portrait from "@/assets/photo-2.jpg";
 
 export const Route = createFileRoute("/sobre-mi")({
   head: () => ({
@@ -36,12 +29,12 @@ export const Route = createFileRoute("/sobre-mi")({
 function SobreMi() {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative bg-brand-blue text-white">
-          <SiteHeader variant="blue" />
           <div className="grid md:grid-cols-2 items-stretch">
-            <div className="flex items-center px-6 md:px-14 pt-28 pb-16 md:py-32 order-2 md:order-1">
+            <div className="flex items-center px-6 md:px-14 py-16 md:py-32 order-2 md:order-1">
               <div className="max-w-md">
                 <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight mb-10">
                   ¿QUIÉN ES OSWALDO SMARRELLI TORREALBA?
@@ -72,38 +65,18 @@ function SobreMi() {
             </h2>
             <div className="space-y-6 text-base md:text-lg leading-relaxed text-foreground/85">
               <p>
-                Soy un ciudadano de pensamiento libre y buenas costumbres. Economista, magíster en
-                gerencia, locutor certificado y articulista por convicción. A lo largo de mi
-                trayectoria he liderado e integrado equipos en empresas e instituciones públicas,
-                esto ha robustecido mi formación y afinado mi desempeño. Creo profundamente que lo
-                único constante es la evolución y por eso me mantengo en aprendizaje constante con
-                mirada renovadora y compromiso tenaz.
+               Soy un ciudadano de pensamiento libre y buenas costumbres. Economista, magíster en gerencia, locutor certificado y articulista por convicción. A lo largo de mi trayectoria he liderado e integrado equipos en empresas e instituciones públicas, esto ha robustecido mi formación y afinado mi desempeño. Creo profundamente que lo único constante es la evolución y por eso me mantengo en aprendizaje constante con mirada renovadora y compromiso tenaz.
               </p>
               <p>
-                Desde muy joven me ha impulsado un gran motivo: "La sociedad" y en su nombre, una
-                pregunta esencial: ¿Cómo contribuir a una sociedad mejor? Esa inquietud me llevó a
-                descubrir otra pasión: "La escritura", la grandeza de dejar imperecedero el
-                pensamiento a través de palabras y frases me encontró, ese poder que tiene la
-                escritura como herramienta para incidir, proponer y dejar huella. Mi pensamiento lo
-                expreso en artículos, proyectos, conversaciones y creando espacios de formación que
-                siembren conciencia, despierten criterio y generen vínculos, esto no es solo una
-                práctica: es vocación, es entrega y todo lo que pueda aportar en ese camino
-                representa para mí una fuente genuina de satisfacción y aunque, no me considero
-                experto, sí soy un aprendiz constante, comprometido y tenaz en todo aquello en lo
-                que creo y hago.
+                Desde muy joven me ha impulsado un gran motivo: "La sociedad" y en su nombre, una pregunta esencial: ¿Cómo contribuir a una sociedad mejor? Esa inquietud me llevó a descubrir otra pasión: "La escritura",  la grandeza de dejar imperecedero el pensamiento a través de palabras y frases me encontró, ese poder que tiene la escritura como herramienta para incidir, proponer y dejar huella. Mi pensamiento lo expreso en artículos, proyectos, conversaciones y creando espacios de formación que siembren conciencia, despierten criterio y generen vínculos, esto no es solo una práctica: es vocación, es entrega y todo lo que pueda aportar en ese camino representa para mí una fuente genuina de satisfacción y aunque, no me considero experto, sí soy un aprendiz constante, comprometido y tenaz en todo aquello en lo que creo y hago.
               </p>
               <p>
-                Mi historia esta llena de retos, este es otro de ellos, pero si este sitio sirve de
-                herramienta para conectar lo que creo, lo que hago y lo que sueño, si logra
-                inspirar, movilizar y aportar a la construcción de una sociedad más íntegra, justa y
-                consciente, entonces habrá cumplido su propósito y todos seremos gratamente
-                ganadores.
+                Mi historia esta llena de retos, este es otro de ellos, pero si este sitio sirve de herramienta para conectar lo que creo, lo que hago y lo que sueño, si logra inspirar, movilizar y aportar a la construcción de una sociedad más íntegra, justa y consciente, entonces habrá cumplido su propósito y todos seremos gratamente ganadores.
               </p>
             </div>
             <blockquote className="mt-10 text-right">
               <p className="font-display italic text-xl md:text-2xl text-foreground">
-                "Nunca se equivoca quien mira el futuro con esperanza y trabaja con constancia para
-                hacerlo posible"
+                "Nunca se equivoca quien mira el futuro con esperanza y trabaja con constancia para hacerlo posible"
               </p>
               <footer className="font-display italic font-bold mt-3 text-foreground">
                 Oswaldo Smarrelli Torrealba
@@ -122,25 +95,16 @@ function SobreMi() {
               Imágenes con historia, reflejos de un camino
             </p>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-              {galleryImages.length > 0
-                ? galleryImages.map((src, i) => (
-                    <div key={src} className="aspect-square overflow-hidden bg-muted rounded-sm">
-                      <img
-                        src={src}
-                        alt={`Galería ${i + 1}`}
-                        loading="lazy"
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  ))
-                : // Placeholders until photos are added to src/assets/gallery/
-                  Array.from({ length: 18 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="aspect-square bg-muted rounded-sm border border-border"
-                      aria-hidden
-                    />
-                  ))}
+              {galleryImages.map((src, i) => (
+                <div key={src} className="aspect-square overflow-hidden bg-muted rounded-sm">
+                  <img
+                    src={src}
+                    alt={`Galería ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>

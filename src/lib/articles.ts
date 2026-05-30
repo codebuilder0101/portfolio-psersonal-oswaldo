@@ -15,127 +15,148 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: "umbrales-de-la-democracia",
-    title: "Los umbrales de la democracia: ¿hacia dónde camina el contrato social?",
+    slug: "todos-somos-marca",
+    title: "Todos somos marca",
     excerpt:
-      "En una era de polarización algorítmica, los pilares de la convivencia se tambalean. Una mirada a la erosión de las instituciones y la urgencia de una nueva pedagogía civil.",
-    category: "Política",
-    date: "2025-05-12",
-    readingTime: 12,
+      "Aunque no lo queramos, todos somos marca, así nos perciben y así percibimos, ser visibles o no queda a vuestra decisión, quizás, esta idea se asocie a la autopromoción vacía o al influencer sin contenido que mencioné en mi artículo anterior, pero no es así, esto es otra cosa, hablo de una estrategia de posicionamiento con propósito, de una marca personal construida sobre la base de la experiencia, credibilidad y trayectoria.",
+    category: "Estrategia",
+    date: "2025-05-20",
+    readingTime: 4,
     featured: true,
-    tags: ["democracia", "instituciones", "polarización"],
+    tags: ["marca personal", "reputación", "posicionamiento"],
     body: [
-      { type: "p", text: "La democracia se mide menos por sus rituales que por la salud silenciosa de los acuerdos que la sostienen. Hoy, esos acuerdos crujen." },
-      { type: "p", text: "Cuando el ciudadano deja de creer que las reglas son las mismas para todos, no abandona la república con un portazo: lo hace en silencio, votando con desinterés, con cinismo, con migraciones internas hacia lo privado." },
-      { type: "h2", text: "El algoritmo y la plaza pública" },
-      { type: "p", text: "Las plataformas digitales han fragmentado la conversación común. Cada usuario habita una realidad curada por su propio sesgo, multiplicada por la lógica del engagement. Ya no discutimos los mismos hechos." },
-      { type: "quote", text: "La polarización no es un accidente: es un modelo de negocio que externalizó sus costos sobre la democracia." },
-      { type: "p", text: "Necesitamos, con urgencia, una pedagogía civil que vuelva a enseñar el arte difícil de disentir sin destruir. No para imponer consensos artificiales, sino para recuperar la idea —tan antigua y tan moderna— de que el otro existe." },
-      { type: "h2", text: "Reconstruir, no restaurar" },
-      { type: "p", text: "No se trata de volver a un pasado idealizado. Se trata de imaginar instituciones a la altura del siglo que habitamos: más transparentes, más cercanas, más capaces de rendir cuentas en tiempo real." },
-      { type: "p", text: "El contrato social que viene no se firmará en papel. Se escribirá, día a día, en la calidad de nuestras conversaciones públicas." },
+      {
+        type: "p",
+        text: "Aunque no lo queramos, todos somos marca, así nos perciben y así percibimos, ser visibles o no queda a vuestra decisión, quizás, esta idea se asocie a la autopromoción vacía o al influencer sin contenido que mencioné en mi artículo anterior, pero no es así, esto es otra cosa, hablo de una estrategia de posicionamiento con propósito, de una marca personal construida sobre la base de la experiencia, credibilidad y trayectoria.",
+      },
+    ],
+  },
+  {
+    slug: "dinamicas-actuales-decadencia-o-evolucion",
+    title: "Dinámicas actuales: decadencia o evolución",
+    excerpt:
+      "La historia sigue un ciclo de nacimiento, desarrollo y decadencia” así opinaba el filósofo italiano Giambattista Vico, sobran evidencias históricas de momentos de esplendor y estabilidad seguidos de crisis y transformación, algo así como que no avanzamos en línea recta, solo transitamos en espirales, cambiando de formas, pero repitiendo patrones. Es probable que hoy estemos transitando uno de esos espirales en los que el mundo parece desmoronarse, Winston Churchill decía “cuanto más atrás puedas mirar, más adelante verás”.",
+    category: "Pensamiento",
+    date: "2025-05-06",
+    readingTime: 4,
+    tags: ["historia", "ciclos", "sociedad"],
+    body: [
+      {
+        type: "p",
+        text: "La historia sigue un ciclo de nacimiento, desarrollo y decadencia” así opinaba el filósofo italiano Giambattista Vico, sobran evidencias históricas de momentos de esplendor y estabilidad seguidos de crisis y transformación, algo así como que no avanzamos en línea recta, solo transitamos en espirales, cambiando de formas, pero repitiendo patrones. Es probable que hoy estemos transitando uno de esos espirales en los que el mundo parece desmoronarse, Winston Churchill decía “cuanto más atrás puedas mirar, más adelante verás”.",
+      },
     ],
   },
   {
     slug: "transformacion-digital-empresa",
     title: "Transformación digital: el desafío de la empresa de hoy",
     excerpt:
-      "La tecnología es la parte fácil. El verdadero desafío es cultural: dejar de gerenciar desde la nostalgia y empezar a liderar desde la curiosidad.",
+      "Actualmente muchas pequeñas y medianas empresas aún dependen de métodos anticuados para gestionar sus operaciones, no es sorpresa, encontrar oficinas donde el inventario se controla desde hojas de cálculo de excel, el mantenimiento de equipos se registra en papel, el análisis de facturas se realiza de forma manual e igualmente sucede con los pedidos de clientes, entre otras tantas cosas, pero esta forma de trabajar, aunque parezca inofensiva, tiene un costo muy alto.",
     category: "Estrategia",
-    date: "2025-04-28",
-    readingTime: 8,
-    tags: ["transformación", "liderazgo", "cultura"],
+    date: "2025-04-22",
+    readingTime: 4,
+    tags: ["transformación", "pymes", "tecnología"],
     body: [
-      { type: "p", text: "La mayoría de los proyectos de transformación digital fracasan no por la tecnología, sino por la incapacidad de la organización para reescribir sus propias narrativas internas." },
-      { type: "h2", text: "El liderazgo como traducción" },
-      { type: "p", text: "El líder contemporáneo no es quien tiene todas las respuestas; es quien sabe formular las preguntas correctas y traducir incertidumbre en aprendizaje colectivo." },
-      { type: "quote", text: "Digitalizar procesos rotos solo produce errores más rápidos." },
-      { type: "p", text: "La verdadera transformación empieza cuando la organización acepta que el viejo modelo ya no explica el mundo —y que el nuevo todavía está por escribirse, con su gente dentro." },
-    ],
-  },
-  {
-    slug: "soledad-hiperconectividad",
-    title: "La soledad en la era de la hiperconectividad",
-    excerpt:
-      "Nunca estuvimos tan acompañados ni tan solos. Una reflexión sobre los vínculos que la pantalla simula y los que la vida exige.",
-    category: "Sociedad",
-    date: "2025-04-15",
-    readingTime: 9,
-    tags: ["sociedad", "tecnología", "vínculos"],
-    body: [
-      { type: "p", text: "La paradoja contemporánea: cuanto más conectados estamos, más reportamos sentirnos solos. Algo no cuadra en la ecuación del progreso." },
-      { type: "p", text: "Los vínculos digitales nos dan la sensación de presencia sin el costo del compromiso. Pero la amistad, la familia, la comunidad, son ejercicios de fricción tolerada." },
-      { type: "quote", text: "La soledad moderna no es ausencia de gente: es ausencia de tiempo compartido sin pantalla intermedia." },
-    ],
-  },
-  {
-    slug: "todos-somos-marca",
-    title: "Todos somos marca",
-    excerpt:
-      "Aunque no lo queramos, todos somos marca, y eso conlleva una responsabilidad mayor: cada interacción suma o resta a nuestra reputación.",
-    category: "Estrategia",
-    date: "2025-04-02",
-    readingTime: 7,
-    tags: ["marca personal", "reputación"],
-    body: [
-      { type: "p", text: "La marca personal no es un proyecto opcional: es la consecuencia inevitable de existir en un mundo conectado." },
-      { type: "p", text: "Lo que se proyecta en una conversación, en una publicación o en un silencio, va construyendo —día a día— el activo más volátil y más valioso que tenemos: la reputación." },
+      {
+        type: "p",
+        text: "Actualmente muchas pequeñas y medianas empresas aún dependen de métodos anticuados para gestionar sus operaciones, no es sorpresa, encontrar oficinas donde el inventario se controla desde hojas de cálculo de excel, el mantenimiento de equipos se registra en papel, el análisis de facturas se realiza de forma manual e igualmente sucede con los pedidos de clientes, entre otras tantas cosas, pero esta forma de trabajar, aunque parezca inofensiva, tiene un costo muy alto.",
+      },
     ],
   },
   {
     slug: "agonia-de-las-dictaduras",
-    title: "Agonía de las dictaduras: el caso Venezuela",
+    title: "Agonía de las dictaduras: caso Venezuela",
     excerpt:
-      "Las dictaduras no caen: agonizan. Un análisis sobre los mecanismos del poder absoluto cuando se queda sin futuro y solo le queda el presente.",
+      "La historia conserva grandes ejemplos del ascenso y caída de regímenes autoritarios, por más sólidos que parezcan, llevan en sí mismos su propia ruina. Al aferrarse al poder, recurren a abusos cada vez mayores, acelerando su colapso. Venezuela no será la excepción.",
     category: "Política",
-    date: "2025-03-18",
-    readingTime: 14,
-    tags: ["venezuela", "autoritarismo", "transición"],
+    date: "2025-04-08",
+    readingTime: 3,
+    tags: ["venezuela", "autoritarismo", "poder"],
     body: [
-      { type: "p", text: "Las dictaduras del siglo XXI han aprendido a sobrevivir más allá de su legitimidad. Sustituyen la convicción por el miedo, y la institución por la red de complicidades." },
-      { type: "p", text: "Pero ni el miedo ni la complicidad son eternos. Llega un momento en que el régimen se mantiene en pie solo por inercia." },
-      { type: "quote", text: "Cuando el poder solo se sostiene por el cálculo de quienes lo rodean, ha dejado de ser poder: es ya una forma de espera." },
+      {
+        type: "p",
+        text: "La historia conserva grandes ejemplos del ascenso y caída de regímenes autoritarios, por más sólidos que parezcan, llevan en sí mismos su propia ruina. Al aferrarse al poder, recurren a abusos cada vez mayores, acelerando su colapso. Venezuela no será la excepción.",
+      },
     ],
   },
   {
     slug: "brecha-saber-saber-hacer",
-    title: "La brecha entre saber y saber hacer",
+    title: 'La brecha entre "saber" y "saber hacer"',
     excerpt:
-      "Hay un abismo entre la información disponible y la sabiduría aplicada. Sobre la urgencia de cerrar la distancia entre el diagnóstico y la acción.",
+      "El genio Leonardo Da Vinci destacó la importancia de la acción sobre el conocimiento y lo dejó plasmado en la frase: “No es el saber lo que es más importante, sino el saber hacer” poderosa sentencia que aplica a cualquier gestión, ya que la posibilidad de un resultado exitoso se sustenta en el equilibrio entre el conocimiento teórico y la capacidad de aplicarlo en la práctica, si bien la inteligencia y el dominio de conceptos son fundamentales, estos por sí solos no garantizan el éxito de la gestión.",
     category: "Pensamiento",
-    date: "2025-03-04",
-    readingTime: 6,
-    tags: ["educación", "acción"],
+    date: "2025-03-25",
+    readingTime: 4,
+    tags: ["conocimiento", "acción", "gestión"],
     body: [
-      { type: "p", text: "Vivimos en la era de la sobreinformación y, paradójicamente, de la subdecisión. Sabemos mucho y resolvemos poco." },
-      { type: "p", text: "La diferencia entre saber y saber hacer es, casi siempre, una cuestión de carácter: la disposición de poner el cuerpo en aquello que la mente ya entendió." },
+      {
+        type: "p",
+        text: "El genio Leonardo Da Vinci destacó la importancia de la acción sobre el conocimiento y lo dejó plasmado en la frase: “No es el saber lo que es más importante, sino el saber hacer” poderosa sentencia que aplica a cualquier gestión, ya que la posibilidad de un resultado exitoso se sustenta en el equilibrio entre el conocimiento teórico y la capacidad de aplicarlo en la práctica, si bien la inteligencia y el dominio de conceptos son fundamentales, estos por sí solos no garantizan el éxito de la gestión.",
+      },
+    ],
+  },
+  {
+    slug: "mision-trump-ii",
+    title: "Misión: Trump II",
+    excerpt:
+      "La “Misión: Trump II” no será sencilla, tendrá que navegar un panorama complejo, donde cada decisión será una prueba de su liderazgo y de la capacidad de Estados Unidos para reinventarse y reafirmarse en un mundo cada vez más incierto.",
+    category: "Política",
+    date: "2025-03-11",
+    readingTime: 3,
+    tags: ["geopolítica", "estados unidos", "liderazgo"],
+    body: [
+      {
+        type: "p",
+        text: "La “Misión: Trump II” no será sencilla, tendrá que navegar un panorama complejo, donde cada decisión será una prueba de su liderazgo y de la capacidad de Estados Unidos para reinventarse y reafirmarse en un mundo cada vez más incierto.",
+      },
     ],
   },
   {
     slug: "los-amos-del-mundo",
     title: "Los amos del mundo",
     excerpt:
-      "Quien controla los datos, controla el relato. Y quien controla el relato, redibuja en silencio las fronteras del poder global.",
+      "Quizás para muchos será difícil de creer, pero los amos del mundo no son los líderes de las potencias, ellos son circunstanciales, tampoco son los dueños de los grandes bancos, ellos luchan por mantener a flote el valor de sus monedas en un mundo cada vez más diversificado y menos creyente en sus bondades, los verdaderos amos del mundo son los que cambian los hábitos de vida, modifican la cotidianidad y nos hacen dependientes < hasta viciosos > de sus inventos.",
     category: "Política",
-    date: "2025-02-20",
-    readingTime: 11,
-    tags: ["geopolítica", "tecnología", "poder"],
+    date: "2025-02-25",
+    readingTime: 4,
+    tags: ["poder", "geopolítica", "tecnología"],
     body: [
-      { type: "p", text: "El siglo XX inventó las multinacionales. El XXI inventó algo más extraño: empresas más poderosas que la mayoría de los Estados, sin pasaporte, sin frontera, sin contrapeso." },
+      {
+        type: "p",
+        text: "Quizás para muchos será difícil de creer, pero los amos del mundo no son los líderes de las potencias, ellos son circunstanciales, tampoco son los dueños de los grandes bancos, ellos luchan por mantener a flote el valor de sus monedas en un mundo cada vez más diversificado y menos creyente en sus bondades, los verdaderos amos del mundo son los que cambian los hábitos de vida, modifican la cotidianidad y nos hacen dependientes < hasta viciosos > de sus inventos.",
+      },
+    ],
+  },
+  {
+    slug: "umbrales-de-la-democracia",
+    title: "Los umbrales de la democracia",
+    excerpt:
+      "La democracia sigue siendo el mejor sistema de gobierno, pero dejando claro que no es un estado estático, es un proceso continuo que requiere vigilancia, defensa constante y todos debemos tener el deber de defenderla, consolidarla y en cuanto sea posible mejorarla, por lo tanto, la democracia no es solo un ideal a ser celebrado, es una tarea a ser realizada.",
+    category: "Política",
+    date: "2025-02-11",
+    readingTime: 3,
+    tags: ["democracia", "instituciones", "ciudadanía"],
+    body: [
+      {
+        type: "p",
+        text: "La democracia sigue siendo el mejor sistema de gobierno, pero dejando claro que no es un estado estático, es un proceso continuo que requiere vigilancia, defensa constante y todos debemos tener el deber de defenderla, consolidarla y en cuanto sea posible mejorarla, por lo tanto, la democracia no es solo un ideal a ser celebrado, es una tarea a ser realizada.",
+      },
     ],
   },
   {
     slug: "era-de-la-velocidad",
     title: "La era de la velocidad: te mueves o claudicas",
     excerpt:
-      "El cambio dejó de ser un evento para convertirse en clima. Lo que diferencia hoy a las organizaciones no es su tamaño, sino su cadencia.",
+      "Muchas empresas nacen con la misma concepción de las personas en su juventud, elaboran planes de vida exitosos, a largo plazo, rígidos y luego les pasa como el que construye un castillo de arena en la orilla del mar, por muy sólido que parezca está condenado a ser destruido por las olas. En un mundo empresarial cada vez más competitivo y volátil, las organizaciones deben ser capaces de adaptarse a los cambios con la misma agilidad que un camaleón cambia de color, solo aquellas empresas que sean capaces de aprender, innovar y evolucionar de manera constante lograrán sobrevivir y prosperar a largo plazo de igual manera sucede con las personas ante aquella planificación soñada, por lo tanto, es mejor moverse para no claudicar.",
     category: "Emprendimiento",
-    date: "2025-02-05",
-    readingTime: 8,
-    tags: ["innovación", "agilidad"],
+    date: "2025-01-28",
+    readingTime: 5,
+    tags: ["innovación", "agilidad", "adaptación"],
     body: [
-      { type: "p", text: "Lo que antes se medía en décadas hoy se mide en trimestres. Lo que antes era ventaja competitiva, hoy es boleto de entrada." },
-      { type: "p", text: "La velocidad sin propósito es agitación. Pero el propósito sin velocidad, en este mercado, es nostalgia." },
+      {
+        type: "p",
+        text: "Muchas empresas nacen con la misma concepción de las personas en su juventud, elaboran planes de vida exitosos, a largo plazo, rígidos y luego les pasa como el que construye un castillo de arena en la orilla del mar, por muy sólido que parezca está condenado a ser destruido por las olas. En un mundo empresarial cada vez más competitivo y volátil, las organizaciones deben ser capaces de adaptarse a los cambios con la misma agilidad que un camaleón cambia de color, solo aquellas empresas que sean capaces de aprender, innovar y evolucionar de manera constante lograrán sobrevivir y prosperar a largo plazo de igual manera sucede con las personas ante aquella planificación soñada, por lo tanto, es mejor moverse para no claudicar.",
+      },
     ],
   },
 ];
