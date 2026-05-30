@@ -1,5 +1,5 @@
 import { r as reactExports, j as jsxRuntimeExports, R as React } from "./react.mjs";
-import { w as invariant, x as isDangerousProtocol, m as exactPathTest, K as removeTrailingSlash, v as hasKeys, i as deepEqual, o as functionalUpdate, B as BaseRootRoute, a as BaseRoute, y as isModuleNotFoundError, z as isNotFound, t as getScrollRestorationScriptForRouter, O as rootRouteId, D as isServer, A as isRedirect, e as createNonReactiveReadonlyStore, d as createNonReactiveMutableStore, R as RouterCore, l as escapeHtml, p as getAssetCrossOrigin, s as getScriptPreloadAttrs, b as appendUniqueUserTags, N as resolveManifestCssLink, S as transformReadableStreamWithRouter, h as createSsrStreamResponse, Q as transformPipeableStreamWithRouter } from "./tanstack__router-core.mjs";
+import { w as invariant, x as isDangerousProtocol, m as exactPathTest, J as removeTrailingSlash, v as hasKeys, i as deepEqual, o as functionalUpdate, B as BaseRootRoute, a as BaseRoute, y as isModuleNotFoundError, z as isNotFound, t as getScrollRestorationScriptForRouter, N as rootRouteId, D as isServer, A as isRedirect, e as createNonReactiveReadonlyStore, d as createNonReactiveMutableStore, R as RouterCore, l as escapeHtml, p as getAssetCrossOrigin, s as getScriptPreloadAttrs, b as appendUniqueUserTags, M as resolveManifestCssLink, Q as transformReadableStreamWithRouter, h as createSsrStreamResponse, P as transformPipeableStreamWithRouter } from "./tanstack__router-core.mjs";
 import { a as ReactDOMServer } from "./react-dom.mjs";
 import { PassThrough } from "node:stream";
 import { i as isbot } from "./isbot.mjs";
@@ -742,24 +742,6 @@ function MatchesInner() {
     })
   });
 }
-function useMatches(opts) {
-  const router = useRouter();
-  reactExports.useRef(void 0);
-  {
-    const matches = router.stores.matches.get();
-    return opts?.select ? opts.select(matches) : matches;
-  }
-}
-function useChildMatches(opts) {
-  const contextMatchId = reactExports.useContext(matchContext);
-  return useMatches({
-    select: (matches) => {
-      matches = matches.slice(matches.findIndex((d) => d.id === contextMatchId) + 1);
-      return matches;
-    },
-    structuralSharing: opts?.structuralSharing
-  });
-}
 var getStoreFactory = (opts) => {
   return {
     createMutableStore: createNonReactiveMutableStore,
@@ -1190,8 +1172,7 @@ export {
   createRootRouteWithContext as a,
   createRouter as b,
   createFileRoute as c,
-  useRouter as d,
   lazyRouteComponent as l,
   renderRouterToStream as r,
-  useChildMatches as u
+  useRouter as u
 };
