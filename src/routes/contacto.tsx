@@ -24,35 +24,38 @@ export const Route = createFileRoute("/contacto")({
 
 function ContactoPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-ink">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1">
-        {/* Hero */}
-        <section
-          className="relative bg-ink bg-cover bg-center text-white"
-          style={{ backgroundImage: `url(${heroBg1})` }}
-        >
-          <div className="absolute inset-0 bg-ink/60" />
-          <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-            <h1 className="font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6">
+      {/* Background image covers the whole contact section */}
+      <main
+        className="relative flex-1 bg-ink bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg1})` }}
+      >
+        <div className="absolute inset-0 bg-ink/75" />
+        <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28">
+          {/* Heading */}
+          <div className="mb-12 md:mb-16">
+            <h1 className="font-display font-bold text-4xl md:text-6xl text-brand-teal mb-5">
               HABLEMOS
             </h1>
             <p className="font-display text-2xl md:text-3xl text-brand-teal/90 max-w-xl leading-snug">
               Las buenas ideas comienzan con una conversación. Estoy a un mensaje de distancia.
             </p>
           </div>
-        </section>
 
-        {/* Form panel */}
-        <section className="bg-ink px-6 pb-20">
-          <div className="max-w-7xl mx-auto bg-[#6d6f72] grid md:grid-cols-2 gap-12 lg:gap-20 p-8 md:p-14 rounded-sm">
-            <ContactForm buttonClassName="bg-brand-blue text-white hover:bg-brand-blue/90" />
-            <div className="flex flex-col justify-center">
-              <p className="text-sm text-white/90 mb-6">Correo electrónico:</p>
-              <SocialLinks only={["Facebook", "Instagram", "X / Twitter"]} />
+          {/* Modern contact card */}
+          <div className="grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10">
+            {/* Form */}
+            <div className="bg-card p-8 md:p-10 lg:p-12">
+              <ContactForm tone="light" />
+            </div>
+            {/* Contact info */}
+            <div className="bg-brand-teal text-white p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+              <p className="text-sm text-white/85 mb-5">Correo electrónico:</p>
+              <SocialLinks only={["Facebook", "Instagram", "X / Twitter"]} tone="brand" />
             </div>
           </div>
-        </section>
+        </div>
       </main>
       <SiteFooter />
     </div>

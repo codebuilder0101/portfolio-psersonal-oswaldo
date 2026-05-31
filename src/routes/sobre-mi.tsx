@@ -89,7 +89,7 @@ function SobreMi() {
         </section>
 
         {/* Gallery */}
-        <section className="bg-cream pb-20 md:pb-28">
+        <section className="bg-muted border-y border-border py-16 md:py-24">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="font-display font-bold text-4xl md:text-5xl text-brand-teal text-center mb-3">
               GALERÍA

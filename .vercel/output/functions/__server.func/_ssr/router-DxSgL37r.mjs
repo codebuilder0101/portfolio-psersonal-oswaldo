@@ -18,7 +18,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-BJIx_5Af.css";
+const appCss = "/assets/styles-DVgctAy9.css";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Toaster$1,
@@ -571,7 +571,7 @@ function SobreMi() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "font-display font-bold text-sm mt-3 text-foreground", children: "Oswaldo Smarrelli Torrealba" })
         ] })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream pb-20 md:pb-28", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted border-y border-border py-16 md:py-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-6", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-4xl md:text-5xl text-brand-teal text-center mb-3", children: "GALERÍA" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-muted-foreground mb-12", children: "Imágenes con historia, reflejos de un camino" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Gallery, { images: galleryImages })
@@ -994,31 +994,31 @@ const Route$4 = createFileRoute("/contacto")({
   component: ContactoPage
 });
 function ContactoPage() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-ink", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "section",
-        {
-          className: "relative bg-ink bg-cover bg-center text-white",
-          style: { backgroundImage: `url(${heroBg1})` },
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-ink/60" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto px-6 py-20 md:py-28", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6", children: "HABLEMOS" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "main",
+      {
+        className: "relative flex-1 bg-ink bg-cover bg-center",
+        style: { backgroundImage: `url(${heroBg1})` },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-ink/75" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-6xl mx-auto px-6 py-20 md:py-28", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-12 md:mb-16", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-6xl text-brand-teal mb-5", children: "HABLEMOS" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-2xl md:text-3xl text-brand-teal/90 max-w-xl leading-snug", children: "Las buenas ideas comienzan con una conversación. Estoy a un mensaje de distancia." })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-card p-8 md:p-10 lg:p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactForm, { tone: "light" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-brand-teal text-white p-8 md:p-10 lg:p-12 flex flex-col justify-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/85 mb-5", children: "Correo electrónico:" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(SocialLinks, { only: ["Facebook", "Instagram", "X / Twitter"], tone: "brand" })
+              ] })
             ] })
-          ]
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-ink px-6 pb-20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto bg-[#6d6f72] grid md:grid-cols-2 gap-12 lg:gap-20 p-8 md:p-14 rounded-sm", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ContactForm, { buttonClassName: "bg-brand-blue text-white hover:bg-brand-blue/90" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/90 mb-6", children: "Correo electrónico:" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SocialLinks, { only: ["Facebook", "Instagram", "X / Twitter"] })
-        ] })
-      ] }) })
-    ] }),
+          ] })
+        ]
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
   ] });
 }
@@ -1248,7 +1248,7 @@ function ArticlePage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-background", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "max-w-4xl mx-auto px-6 pt-12 md:pt-16 pb-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           Link,
           {
@@ -1262,8 +1262,8 @@ function ArticlePage() {
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-5xl leading-[1.1] text-foreground text-balance mb-6", children: article.title })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-4xl mx-auto px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { className: "border-border" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-4xl mx-auto px-6 pt-10 prose-editorial", children: article.body.map((block, i) => {
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-6xl mx-auto px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { className: "border-border" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-6xl mx-auto px-6 pt-10 prose-editorial", children: article.body.map((block, i) => {
         if (block.type === "h2") return /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: block.text }, i);
         if (block.type === "h3") return /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: block.text }, i);
         if (block.type === "quote") return /* @__PURE__ */ jsxRuntimeExports.jsx("blockquote", { children: block.text }, i);
