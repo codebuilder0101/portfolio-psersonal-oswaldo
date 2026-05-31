@@ -1,13 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ArticleCard } from "@/components/article-card";
-import { ArticleArtwork } from "@/components/article-artwork";
-import { ShareBar } from "@/components/share-bar";
-import { NewsletterBlock } from "@/components/newsletter-block";
-import { getArticle, getRelated, formatDate, articles } from "@/lib/articles";
+import { getArticle, getRelated, formatDate } from "@/lib/articles";
 import portrait from "@/assets/oswaldo-portrait.jpg";
-import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/articulos/$slug")({
   loader: ({ params }) => {
@@ -48,14 +44,21 @@ export const Route = createFileRoute("/articulos/$slug")({
     };
   },
   notFoundComponent: () => (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <main className="flex-1 grid place-items-center px-6 py-24">
         <div className="text-center max-w-md">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">Error 404</p>
-          <h1 className="font-display text-5xl mb-6">Artículo no encontrado</h1>
-          <Link to="/articulos" className="font-mono text-xs uppercase tracking-widest border-b-2 border-foreground pb-1 hover:text-accent hover:border-accent transition-colors">
-            Volver al archivo
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal mb-5">
+            Error 404
+          </p>
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-6">
+            Artículo no encontrado
+          </h1>
+          <Link
+            to="/articulos"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" /> Volver a Mi opinión
           </Link>
         </div>
       </main>
@@ -74,104 +77,102 @@ function ArticlePage() {
   const { article, related } = Route.useLoaderData();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <main className="flex-1">
         <article>
-          {/* Article header */}
-          <header className="max-w-3xl mx-auto px-6 pt-12 md:pt-16 pb-10">
+          {/* Header */}
+          <header className="max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-8">
             <Link
               to="/articulos"
-              className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors mb-10"
+              className="inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors mb-8"
             >
-              <ArrowLeft className="h-3 w-3" /> Mi Opinión
+              <ArrowLeft className="h-4 w-4" /> Volver a Mi opinión
             </Link>
-            <div className="flex gap-4 mb-6 font-mono text-[10px] uppercase tracking-widest">
-              <span className="text-accent">{article.category}</span>
-              <span className="text-muted-foreground">
-                {formatDate(article.date)} · {article.readingTime} min de lectura
-              </span>
-            </div>
-            <h1 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-balance mb-8">
+            
+            <h1 className="font-display font-bold text-4xl md:text-5xl leading-[1.1] text-foreground text-balance mb-6">
               {article.title}
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed font-display italic text-pretty">
-              {article.excerpt}
-            </p>
           </header>
 
-          {/* Hero artwork */}
-          <div className="max-w-5xl mx-auto px-6 mb-12">
-            <ArticleArtwork
-              slug={article.slug}
-              category={article.category}
-              big
-              className="w-full aspect-[16/9] md:aspect-[21/9] rounded-sm"
-            />
+          <div className="max-w-6xl mx-auto px-6">
+            <hr className="border-border" />
           </div>
 
           {/* Body */}
-          <div className="max-w-2xl mx-auto px-6 prose-editorial">
+          <div className="max-w-6xl mx-auto px-6 pt-10 prose-editorial">
             {article.body.map((block: { type: string; text: string }, i: number) => {
               if (block.type === "h2") return <h2 key={i}>{block.text}</h2>;
               if (block.type === "h3") return <h3 key={i}>{block.text}</h3>;
-              if (block.type === "quote")
-                return (
-                  <blockquote key={i}>
-                    "{block.text}"
-                  </blockquote>
-                );
+              if (block.type === "quote") return <blockquote key={i}>{block.text}</blockquote>;
               return <p key={i}>{block.text}</p>;
             })}
+          </div>
 
-            <ShareBar title={article.title} slug={article.slug} />
-
-            {/* Author box */}
-            <aside className="not-prose border border-border p-6 md:p-8 my-12 flex gap-6 items-start">
+          {/* Author */}
+          <div className="max-w-4xl mx-auto px-6 mt-14">
+            <div className="flex gap-5 items-start bg-card border border-border rounded-2xl p-6 md:p-7 shadow-sm">
               <img
                 src={portrait}
                 alt="Oswaldo Smarrelli"
-                className="size-20 md:size-24 object-cover rounded-sm grayscale flex-shrink-0"
+                className="size-16 md:size-20 object-cover rounded-full flex-shrink-0"
               />
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-2 block">
+                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-teal mb-1">
                   Sobre el autor
                 </span>
-                <h3 className="font-display text-2xl mb-3">Oswaldo Smarrelli</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Economista, magíster en gerencia, locutor certificado y articulista por convicción.
-                  Más de 20 años acompañando a líderes y organizaciones a pensar el presente para
-                  diseñar el mañana.
+                <h3 className="font-display font-bold text-xl text-foreground mb-2">
+                  Oswaldo Smarrelli
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Economista, magíster en gerencia, locutor certificado y articulista por
+                  convicción. Más de 20 años acompañando a líderes y organizaciones a pensar el
+                  presente para diseñar el mañana.
                 </p>
                 <Link
                   to="/sobre-mi"
-                  className="inline-block mt-4 font-mono text-[10px] uppercase tracking-widest text-foreground hover:text-accent transition-colors"
+                  className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors"
                 >
-                  Leer biografía completa →
+                  Leer biografía completa <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </aside>
-
-            <NewsletterBlock compact />
+            </div>
           </div>
 
           {/* Related */}
-          <section className="max-w-7xl mx-auto px-6 py-20 border-t border-border">
-            <h2 className="font-display text-3xl md:text-4xl italic mb-12">
-              Seguir leyendo
-            </h2>
-            <div className="grid md:grid-cols-3 gap-x-10 gap-y-16">
-              {related.map((a: typeof articles[number]) => (
-                <ArticleCard key={a.slug} article={a} />
-              ))}
-            </div>
-          </section>
+          {related.length > 0 && (
+            <section className="max-w-6xl mx-auto px-6 py-16 md:py-20 mt-8 border-t border-border">
+              <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-8">
+                Seguir leyendo
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {related.map((a) => (
+                  <Link
+                    key={a.slug}
+                    to="/articulos/$slug"
+                    params={{ slug: a.slug }}
+                    className="group flex flex-col bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  >
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-teal mb-3">
+                      {a.category}
+                    </span>
+                    <h3 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-brand-teal">
+                      {a.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                      {a.excerpt}
+                    </p>
+                    <span className="mt-4 pt-3 text-xs text-muted-foreground border-t border-border">
+                      {formatDate(a.date)} · {a.readingTime} min
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
         </article>
       </main>
       <SiteFooter />
     </div>
   );
 }
-
-// Avoid unused warning
-void articles;
