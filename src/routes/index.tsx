@@ -56,19 +56,19 @@ function HomePage() {
         {/* Hero */}
         <section className="relative">
           <div className="grid md:grid-cols-2 items-stretch">
-            <div className="md:min-h-[88vh] bg-muted">
+            <div className="md:h-[calc(100vh-5rem)] bg-muted">
               <img
                 src={portrait}
                 alt="Retrato de Oswaldo Smarrelli"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex items-center px-6 md:px-14 py-16 md:py-24">
-              <div className="max-w-xl">
-                <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-brand-teal mb-8">
+            <div className="flex items-center justify-center px-6 md:px-12 lg:px-20 py-12 md:py-16">
+              <div className="w-full max-w-2xl">
+                <h1 className="font-display font-bold text-4xl xl:text-5xl leading-[1.1] text-brand-teal mb-6 lg:whitespace-nowrap">
                   CRITERIOS Y PROPÓSITOS
                 </h1>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/80">
+                <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-md text-justify">
                   Creo en la fuerza de las palabras, en el poder de las frases y en su capacidad
                   para despertar y mover voluntades, no busco tener la razón, busco sembrar dudas y
                   crear criterios nuevos. No escribo para gustar, cada artículo es una forma de
@@ -81,35 +81,40 @@ function HomePage() {
         </section>
 
         {/* Three info columns */}
-        <section className="bg-brand-blue text-white">
-          <div className="grid md:grid-cols-3">
-            {columns.map((c) => (
-              <div
-                key={c.title}
-                className={`px-8 md:px-10 py-14 md:py-20 ${
-                  c.highlight ? "bg-brand-blue-light" : ""
-                }`}
-              >
-                <h2 className="font-display text-2xl md:text-3xl mb-6 leading-tight">{c.title}</h2>
-                <p className="text-sm md:text-[15px] leading-relaxed text-white/85">{c.body}</p>
-              </div>
-            ))}
+        <section className="bg-muted border-y border-border">
+          <div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-20 md:py-28">
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+              {columns.map((c) => (
+                <div
+                  key={c.title}
+                  className="bg-card rounded-2xl border border-border p-9 md:p-10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="block h-1 w-10 rounded-full bg-brand-teal mb-6" />
+                  <h2 className="font-display font-bold text-2xl text-foreground mb-4 leading-tight">
+                    {c.title}
+                  </h2>
+                  <p className="text-sm md:text-[15px] leading-relaxed text-muted-foreground text-justify">
+                    {c.body}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Statement + stats */}
-        <section className="bg-cream">
-          <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight uppercase text-foreground">
+        <section className="bg-card border-y border-border">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-snug text-foreground text-justify">
               Las ideas nos unen y las palabras nos conectan, aquí empieza nuestro diálogo
             </h2>
-            <div className="space-y-10 md:pl-10">
+            <div className="flex gap-10 md:gap-20">
               {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-display font-bold text-5xl md:text-6xl text-foreground">
+                <div key={s.label} className="border-l-2 border-brand-teal/30 pl-5">
+                  <div className="font-display font-bold text-4xl md:text-5xl text-brand-teal leading-none whitespace-nowrap">
                     {s.value}
                   </div>
-                  <div className="text-lg text-muted-foreground mt-1">{s.label}</div>
+                  <div className="text-sm text-muted-foreground mt-2">{s.label}</div>
                 </div>
               ))}
             </div>

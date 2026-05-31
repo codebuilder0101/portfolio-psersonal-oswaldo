@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
@@ -34,24 +35,25 @@ function SobreMi() {
         {/* Hero */}
         <section className="relative bg-brand-blue text-white">
           <div className="grid md:grid-cols-2 items-stretch">
-            <div className="flex items-center px-6 md:px-14 py-16 md:py-32 order-2 md:order-1">
+            <div className="flex items-center px-6 md:px-14 lg:px-20 py-16 md:py-20 order-2 md:order-1">
               <div className="max-w-md">
-                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight mb-10">
+                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 text-balance">
                   ¿QUIÉN ES OSWALDO SMARRELLI TORREALBA?
                 </h1>
                 <Link
                   to="/contacto"
-                  className="inline-block bg-brand-teal text-white px-6 py-3 text-sm tracking-wide rounded-sm hover:bg-brand-teal/90 transition-colors"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-teal text-white px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-white hover:text-brand-blue transition-colors"
                 >
                   ESCRÍBEME
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
-            <div className="order-1 md:order-2 min-h-[40vh] md:min-h-[70vh]">
+            <div className="relative order-1 md:order-2 min-h-[50vh] md:h-[calc(100vh-5rem)]">
               <img
                 src={portrait}
                 alt="Oswaldo Smarrelli Torrealba"
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           </div>
@@ -59,11 +61,11 @@ function SobreMi() {
 
         {/* Bio */}
         <section className="bg-cream">
-          <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+          <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
             <h2 className="font-display font-bold text-3xl md:text-4xl text-brand-teal mb-10">
               Desafiando límites
             </h2>
-            <div className="space-y-6 text-base md:text-lg leading-relaxed text-foreground/85">
+            <div className="space-y-6 text-base md:text-lg leading-relaxed text-foreground/85 text-justify">
               <p>
                Soy un ciudadano de pensamiento libre y buenas costumbres. Economista, magíster en gerencia, locutor certificado y articulista por convicción. A lo largo de mi trayectoria he liderado e integrado equipos en empresas e instituciones públicas, esto ha robustecido mi formación y afinado mi desempeño. Creo profundamente que lo único constante es la evolución y por eso me mantengo en aprendizaje constante con mirada renovadora y compromiso tenaz.
               </p>
@@ -75,10 +77,10 @@ function SobreMi() {
               </p>
             </div>
             <blockquote className="mt-10 text-right">
-              <p className="font-display italic text-xl md:text-2xl text-foreground">
+              <p className="font-display text-base md:text-lg text-foreground">
                 "Nunca se equivoca quien mira el futuro con esperanza y trabaja con constancia para hacerlo posible"
               </p>
-              <footer className="font-display italic font-bold mt-3 text-foreground">
+              <footer className="font-display font-bold text-sm mt-3 text-foreground">
                 Oswaldo Smarrelli Torrealba
               </footer>
             </blockquote>

@@ -16,7 +16,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
         <Link to="/" className="leading-tight">
-          <span className="block font-display font-bold text-xl md:text-2xl text-ink tracking-tight">
+          <span className="block font-display font-bold text-xl md:text-2xl text-brand-teal tracking-tight">
             Oswaldo Smarrelli
           </span>
           <span className="block text-[10px] md:text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal mt-1">

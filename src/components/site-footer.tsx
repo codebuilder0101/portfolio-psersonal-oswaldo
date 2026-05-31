@@ -6,15 +6,7 @@ export function SiteFooter() {
         <p className="text-sm">
           © {year} oswaldosmarrelli.com. Todos los derechos reservados.
         </p>
-        <p className="text-sm">
-          <a href="#" className="text-brand-teal hover:underline underline-offset-4">
-            Legal
-          </a>{" "}
-          y{" "}
-          <a href="#" className="text-brand-teal hover:underline underline-offset-4">
-            Política de Privacidad
-          </a>
-        </p>
+        <p className="text-sm text-brand-teal">Legal y Política de Privacidad</p>
       </div>
     </footer>
   );

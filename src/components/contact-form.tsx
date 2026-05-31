@@ -8,9 +8,13 @@ const schema = z.object({
   mensaje: z.string().trim().min(10, "Cuéntame un poco más").max(2000),
 });
 
+type Tone = "light" | "dark";
+
 export function ContactForm({
-  buttonClassName = "bg-brand-teal text-white hover:bg-brand-teal/90",
+  tone = "dark",
+  buttonClassName,
 }: {
+  tone?: Tone;
   buttonClassName?: string;
 }) {
   const [form, setForm] = useState({ nombre: "", mensaje: "" });
@@ -36,10 +40,20 @@ export function ContactForm({
     setForm({ nombre: "", mensaje: "" });
   };
 
+  const light = tone === "light";
+  const labelCls = light ? "text-foreground font-medium" : "text-white";
+  const fieldCls = light
+    ? "w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 transition"
+    : "w-full bg-transparent border border-white/50 rounded-sm px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors";
+  const helperCls = light ? "text-muted-foreground" : "text-white/70";
+  const errCls = light ? "text-brand-teal" : "text-white/90";
+  const btnCls =
+    buttonClassName ?? "bg-brand-teal text-white hover:bg-brand-teal/90";
+
   return (
-    <form onSubmit={onSubmit} className="space-y-6" noValidate>
+    <form onSubmit={onSubmit} className="space-y-5" noValidate>
       <div className="space-y-2">
-        <label htmlFor="nombre" className="block text-sm text-white">
+        <label htmlFor="nombre" className={`block text-sm ${labelCls}`}>
           Nombre*
         </label>
         <input
@@ -47,13 +61,13 @@ export function ContactForm({
           type="text"
           value={form.nombre}
           onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-          className="w-full bg-transparent border border-white/50 rounded-sm px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors"
+          className={fieldCls}
         />
-        {errors.nombre && <p className="text-sm text-white/90">{errors.nombre}</p>}
+        {errors.nombre && <p className={`text-sm ${errCls}`}>{errors.nombre}</p>}
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="mensaje" className="block text-sm text-white">
+        <label htmlFor="mensaje" className={`block text-sm ${labelCls}`}>
           Mensaje
         </label>
         <textarea
@@ -61,17 +75,17 @@ export function ContactForm({
           rows={6}
           value={form.mensaje}
           onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
-          className="w-full bg-transparent border border-white/50 rounded-sm px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors resize-none"
+          className={`${fieldCls} resize-none`}
         />
-        {errors.mensaje && <p className="text-sm text-white/90">{errors.mensaje}</p>}
+        {errors.mensaje && <p className={`text-sm ${errCls}`}>{errors.mensaje}</p>}
       </div>
 
-      <p className="text-xs text-white/70">* Indica los campos obligatorios</p>
+      <p className={`text-xs ${helperCls}`}>* Indica los campos obligatorios</p>
 
       <button
         type="submit"
         disabled={submitting}
-        className={`w-full py-3.5 text-sm tracking-wide rounded-sm transition-colors disabled:opacity-60 ${buttonClassName}`}
+        className={`w-full py-3.5 text-sm font-medium tracking-wide rounded-lg transition-colors disabled:opacity-60 ${btnCls}`}
       >
         {submitting ? "ENVIANDO..." : "ENVIAR"}
       </button>
@@ -88,12 +102,20 @@ const allSocials = [
 
 export function SocialLinks({
   only,
+  tone = "dark",
   className = "",
 }: {
   only?: ReadonlyArray<"Facebook" | "Instagram" | "LinkedIn" | "X / Twitter">;
+  tone?: "light" | "dark" | "brand";
   className?: string;
 }) {
   const list = only ? allSocials.filter((s) => only.includes(s.label)) : allSocials;
+  const itemCls =
+    tone === "light"
+      ? "border-border text-foreground/70 hover:text-white hover:bg-brand-teal hover:border-brand-teal"
+      : tone === "brand"
+        ? "border-white/60 text-white hover:bg-white hover:text-brand-teal hover:border-white"
+        : "border-white/40 text-white hover:text-brand-teal hover:border-white";
   return (
     <div className={`flex gap-3 ${className}`}>
       {list.map((s) => (
@@ -101,7 +123,7 @@ export function SocialLinks({
           key={s.label}
           href={s.href}
           aria-label={s.label}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/40 text-white hover:border-white hover:text-brand-teal transition-colors"
+          className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${itemCls}`}
         >
           <s.icon className="h-4 w-4" />
         </a>
