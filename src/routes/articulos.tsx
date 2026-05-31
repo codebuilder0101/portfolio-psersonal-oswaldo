@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
 import { articles } from "@/lib/articles";
+import heroBg from "@/assets/image-background.png";
 
 export const Route = createFileRoute("/articulos")({
   head: () => ({
@@ -30,11 +31,13 @@ function ArticulosPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative bg-ink text-white">
-          {/* TODO: drop a city skyline photo here as the hero background. */}
-          <div className="absolute inset-0 bg-gradient-to-br from-ink via-brand-blue/40 to-ink opacity-90" />
+        <section
+          className="relative bg-ink bg-cover bg-center text-white"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        >
+          <div className="absolute inset-0 bg-ink/75" />
           <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
-            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto">
+            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-brand-teal">
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>
             <p className="mt-6 text-sm text-white/60">www.oswaldosmarrelli.com</p>

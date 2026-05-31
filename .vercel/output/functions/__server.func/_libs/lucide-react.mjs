@@ -75,16 +75,20 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$9 = [
+const __iconNode$b = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$9);
-const __iconNode$8 = [
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$b);
+const __iconNode$a = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$8);
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$a);
+const __iconNode$9 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$9);
+const __iconNode$8 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$8);
 const __iconNode$7 = [
   [
     "path",
@@ -151,6 +155,7 @@ const __iconNode = [
 const X = createLucideIcon("x", __iconNode);
 export {
   ArrowLeft as A,
+  ChevronLeft as C,
   Facebook as F,
   Instagram as I,
   Linkedin as L,
@@ -159,5 +164,6 @@ export {
   Twitter as T,
   X,
   ArrowRight as a,
-  MessageCircle as b
+  ChevronRight as b,
+  MessageCircle as c
 };

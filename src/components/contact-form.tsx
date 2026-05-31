@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 const schema = z.object({
   nombre: z.string().trim().min(2, "Tu nombre, por favor").max(100),
@@ -47,8 +47,7 @@ export function ContactForm({
     : "w-full bg-transparent border border-white/50 rounded-sm px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors";
   const helperCls = light ? "text-muted-foreground" : "text-white/70";
   const errCls = light ? "text-brand-teal" : "text-white/90";
-  const btnCls =
-    buttonClassName ?? "bg-brand-teal text-white hover:bg-brand-teal/90";
+  const btnCls = buttonClassName ?? "bg-brand-teal text-white hover:bg-brand-teal/90";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
@@ -93,19 +92,42 @@ export function ContactForm({
   );
 }
 
-const allSocials = [
-  { icon: Facebook, label: "Facebook", href: "#" },
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "X / Twitter", href: "#" },
-] as const;
+// X (formerly Twitter) brand logo.
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+type SocialLabel = "Facebook" | "Instagram" | "LinkedIn" | "X / Twitter";
+
+const allSocials: { icon: ComponentType<{ className?: string }>; label: SocialLabel; href: string }[] = [
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/share/16GYUVZi1q/?mibextid=wwXIfr",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/oswaldosmarrellit?igsh=MThobDUwdzlqeXRqeA%3D%3D&utm_source=qr",
+  },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/oswaldosmarrelli" },
+  {
+    icon: XIcon,
+    label: "X / Twitter",
+    href: "https://x.com/o_smarrelli?s=21&t=1YRgSzYmXmOetHg4hAti6g",
+  },
+];
 
 export function SocialLinks({
   only,
   tone = "dark",
   className = "",
 }: {
-  only?: ReadonlyArray<"Facebook" | "Instagram" | "LinkedIn" | "X / Twitter">;
+  only?: ReadonlyArray<SocialLabel>;
   tone?: "light" | "dark" | "brand";
   className?: string;
 }) {
@@ -118,16 +140,20 @@ export function SocialLinks({
         : "border-white/40 text-white hover:text-brand-teal hover:border-white";
   return (
     <div className={`flex gap-3 ${className}`}>
-      {list.map((s) => (
-        <a
-          key={s.label}
-          href={s.href}
-          aria-label={s.label}
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${itemCls}`}
-        >
-          <s.icon className="h-4 w-4" />
-        </a>
-      ))}
+      {list.map((s) => {
+        const external = s.href !== "#";
+        return (
+          <a
+            key={s.label}
+            href={s.href}
+            aria-label={s.label}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${itemCls}`}
+          >
+            <s.icon className="h-4 w-4" />
+          </a>
+        );
+      })}
     </div>
   );
 }

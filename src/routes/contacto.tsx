@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm, SocialLinks } from "@/components/contact-form";
+import heroBg1 from "@/assets/image-background1.jpg";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -27,9 +28,11 @@ function ContactoPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative bg-ink text-white">
-          {/* TODO: drop the desk/coffee photo here as the hero background. */}
-          <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink to-brand-blue/30" />
+        <section
+          className="relative bg-ink bg-cover bg-center text-white"
+          style={{ backgroundImage: `url(${heroBg1})` }}
+        >
+          <div className="absolute inset-0 bg-ink/60" />
           <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
             <h1 className="font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6">
               HABLEMOS

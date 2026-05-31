@@ -14,7 +14,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-sm border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+      <div className="w-full px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between gap-4">
         <Link to="/" className="leading-tight">
           <span className="block font-display font-bold text-xl md:text-2xl text-brand-teal tracking-tight">
             Oswaldo Smarrelli
@@ -29,8 +29,8 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-foreground/80 hover:text-brand-teal transition-colors"
-              activeProps={{ className: "text-brand-teal" }}
+              className="pb-0.5 font-medium text-foreground/70 hover:text-brand-teal transition-colors"
+              activeProps={{ className: "text-brand-teal font-semibold underline underline-offset-8 decoration-2" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
@@ -55,8 +55,8 @@ export function SiteHeader() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="block py-2.5 text-foreground/80 hover:text-brand-teal transition-colors"
-                  activeProps={{ className: "text-brand-teal" }}
+                  className="block py-2.5 px-3 rounded-lg font-medium text-foreground/70 hover:text-brand-teal transition-colors"
+                  activeProps={{ className: "text-brand-teal font-semibold bg-brand-teal/10" }}
                   activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
                 >

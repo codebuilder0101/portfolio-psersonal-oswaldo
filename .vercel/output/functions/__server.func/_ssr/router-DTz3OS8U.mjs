@@ -4,7 +4,7 @@ import { b as createRouter, a as createRootRouteWithContext, u as useRouter, L a
 import { H as notFound } from "../_libs/tanstack__router-core.mjs";
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { T as Toaster$1, t as toast } from "../_libs/sonner.mjs";
-import { a as ArrowRight, X, M as Menu, F as Facebook, I as Instagram, L as Linkedin, T as Twitter, A as ArrowLeft, S as Share2, b as MessageCircle } from "../_libs/lucide-react.mjs";
+import { a as ArrowRight, X, M as Menu, C as ChevronLeft, b as ChevronRight, F as Facebook, I as Instagram, L as Linkedin, A as ArrowLeft, S as Share2, T as Twitter, c as MessageCircle } from "../_libs/lucide-react.mjs";
 import { o as objectType, s as stringType } from "../_libs/zod.mjs";
 import "../_libs/react-dom.mjs";
 import "util";
@@ -18,7 +18,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-BzSJfwNU.css";
+const appCss = "/assets/styles-NiGX-k4q.css";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Toaster$1,
@@ -137,7 +137,7 @@ const navItems = [
 function SiteHeader() {
   const [open, setOpen] = reactExports.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-sm border-b border-border", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between gap-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/", className: "leading-tight", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block font-display font-bold text-xl md:text-2xl text-brand-teal tracking-tight", children: "Oswaldo Smarrelli" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block text-[10px] md:text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal mt-1" })
@@ -146,8 +146,8 @@ function SiteHeader() {
         Link,
         {
           to: item.to,
-          className: "text-foreground/80 hover:text-brand-teal transition-colors",
-          activeProps: { className: "text-brand-teal" },
+          className: "pb-0.5 font-medium text-foreground/70 hover:text-brand-teal transition-colors",
+          activeProps: { className: "text-brand-teal font-semibold underline underline-offset-8 decoration-2" },
           activeOptions: { exact: item.to === "/" },
           children: item.label
         },
@@ -168,8 +168,8 @@ function SiteHeader() {
       Link,
       {
         to: item.to,
-        className: "block py-2.5 text-foreground/80 hover:text-brand-teal transition-colors",
-        activeProps: { className: "text-brand-teal" },
+        className: "block py-2.5 px-3 rounded-lg font-medium text-foreground/70 hover:text-brand-teal transition-colors",
+        activeProps: { className: "text-brand-teal font-semibold bg-brand-teal/10" },
         activeOptions: { exact: item.to === "/" },
         onClick: () => setOpen(false),
         children: item.label
@@ -264,11 +264,26 @@ function ContactForm({
     )
   ] });
 }
+function XIcon({ className }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", fill: "currentColor", className, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" }) });
+}
 const allSocials = [
-  { icon: Facebook, label: "Facebook", href: "#" },
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "X / Twitter", href: "#" }
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/share/16GYUVZi1q/?mibextid=wwXIfr"
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/oswaldosmarrellit?igsh=MThobDUwdzlqeXRqeA%3D%3D&utm_source=qr"
+  },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/oswaldosmarrelli" },
+  {
+    icon: XIcon,
+    label: "X / Twitter",
+    href: "https://x.com/o_smarrelli?s=21&t=1YRgSzYmXmOetHg4hAti6g"
+  }
 ];
 function SocialLinks({
   only,
@@ -277,16 +292,20 @@ function SocialLinks({
 }) {
   const list = only ? allSocials.filter((s) => only.includes(s.label)) : allSocials;
   const itemCls = tone === "light" ? "border-border text-foreground/70 hover:text-white hover:bg-brand-teal hover:border-brand-teal" : tone === "brand" ? "border-white/60 text-white hover:bg-white hover:text-brand-teal hover:border-white" : "border-white/40 text-white hover:text-brand-teal hover:border-white";
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex gap-3 ${className}`, children: list.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "a",
-    {
-      href: s.href,
-      "aria-label": s.label,
-      className: `inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${itemCls}`,
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx(s.icon, { className: "h-4 w-4" })
-    },
-    s.label
-  )) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex gap-3 ${className}`, children: list.map((s) => {
+    const external = s.href !== "#";
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "a",
+      {
+        href: s.href,
+        "aria-label": s.label,
+        ...external ? { target: "_blank", rel: "noopener noreferrer" } : {},
+        className: `inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${itemCls}`,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(s.icon, { className: "h-4 w-4" })
+      },
+      s.label
+    );
+  }) });
 }
 function ContactBand({
   socials
@@ -299,6 +318,117 @@ function ContactBand({
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-card p-8 md:p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactForm, { tone: "light" }) })
   ] }) }) });
+}
+function Gallery({ images }) {
+  const [index, setIndex] = reactExports.useState(null);
+  const open = index !== null;
+  const close = reactExports.useCallback(() => setIndex(null), []);
+  const prev = reactExports.useCallback(
+    () => setIndex((i) => i === null ? i : (i - 1 + images.length) % images.length),
+    [images.length]
+  );
+  const next = reactExports.useCallback(
+    () => setIndex((i) => i === null ? i : (i + 1) % images.length),
+    [images.length]
+  );
+  reactExports.useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, close, prev, next]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 md:gap-3", children: images.map((src, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => setIndex(i),
+        "aria-label": `Ver imagen ${i + 1}`,
+        className: "group aspect-square overflow-hidden rounded-xl bg-muted ring-1 ring-border cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src,
+            alt: `Galería ${i + 1}`,
+            loading: "lazy",
+            className: "h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          }
+        )
+      },
+      src
+    )) }),
+    open && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink/90 backdrop-blur-sm p-4 sm:p-6 animate-fade-up",
+        onClick: close,
+        role: "dialog",
+        "aria-modal": "true",
+        "aria-label": "Galería",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: close,
+              "aria-label": "Cerrar",
+              className: "absolute top-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 cursor-pointer transition-colors",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-5 w-5" })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: (e) => {
+                e.stopPropagation();
+                prev();
+              },
+              "aria-label": "Anterior",
+              className: "absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 cursor-pointer transition-colors",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "h-6 w-6" })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("figure", { className: "max-w-3xl", onClick: (e) => e.stopPropagation(), children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white p-2.5 rounded-2xl shadow-2xl", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "img",
+              {
+                src: images[index],
+                alt: `Galería ${index + 1}`,
+                className: "max-h-[78vh] w-auto rounded-lg object-contain"
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("figcaption", { className: "mt-4 text-center text-sm text-white/80", children: [
+              index + 1,
+              " / ",
+              images.length
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: (e) => {
+                e.stopPropagation();
+                next();
+              },
+              "aria-label": "Siguiente",
+              className: "absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 cursor-pointer transition-colors",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-6 w-6" })
+            }
+          )
+        ]
+      }
+    )
+  ] });
 }
 const __vite_glob_0_0 = "/assets/01-DXdxQ0lu.jpg";
 const __vite_glob_0_1 = "/assets/02-cKvoCXGq.jpg";
@@ -333,8 +463,12 @@ const __vite_glob_0_29 = "/assets/30-BXUTNSM7.jpg";
 const __vite_glob_0_30 = "/assets/31-BbgGSn3l.jpg";
 const __vite_glob_0_31 = "/assets/32-BTFQF16p.jpg";
 const __vite_glob_0_32 = "/assets/33-LALK19Ku.jpg";
-const __vite_glob_0_33 = "/assets/oswaldo-portrait-IZLttOq9.jpg";
-const __vite_glob_0_34 = "/assets/photo-2-D6mQB-nV.jpg";
+const __vite_glob_0_33 = "/assets/image-background-q8Yix3YT.png";
+const __vite_glob_0_34 = "/assets/image-background1-BTtnEc14.jpg";
+const __vite_glob_0_35 = "/assets/image-new-C_s1VTCn.png";
+const __vite_glob_0_36 = "/assets/oswaldo-portrait-IZLttOq9.jpg";
+const __vite_glob_0_37 = "/assets/photo-2-D6mQB-nV.jpg";
+const imageNew = "/assets/image-new-C_s1VTCn.png";
 const modules = /* @__PURE__ */ Object.assign({
   "../assets/01.jpg": __vite_glob_0_0,
   "../assets/02.jpg": __vite_glob_0_1,
@@ -369,10 +503,14 @@ const modules = /* @__PURE__ */ Object.assign({
   "../assets/31.jpg": __vite_glob_0_30,
   "../assets/32.jpg": __vite_glob_0_31,
   "../assets/33.jpg": __vite_glob_0_32,
-  "../assets/oswaldo-portrait.jpg": __vite_glob_0_33,
-  "../assets/photo-2.jpg": __vite_glob_0_34
+  "../assets/image-background.png": __vite_glob_0_33,
+  "../assets/image-background1.jpg": __vite_glob_0_34,
+  "../assets/image-new.png": __vite_glob_0_35,
+  "../assets/oswaldo-portrait.jpg": __vite_glob_0_36,
+  "../assets/photo-2.jpg": __vite_glob_0_37
 });
-const galleryImages = Object.entries(modules).filter(([path]) => /\/\d{2}\.(jpe?g|png|webp)$/i.test(path)).sort(([a], [b]) => a.localeCompare(b)).map(([, url]) => url);
+const numbered = Object.entries(modules).filter(([path]) => /\/\d{2}\.(jpe?g|png|webp)$/i.test(path)).sort(([a], [b]) => a.localeCompare(b)).map(([, url]) => url);
+const galleryImages = [...numbered, imageNew];
 const portrait$1 = "/assets/photo-2-D6mQB-nV.jpg";
 const Route$5 = createFileRoute("/sobre-mi")({
   head: () => ({
@@ -412,12 +550,12 @@ function SobreMi() {
             }
           )
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative order-1 md:order-2 min-h-[50vh] md:h-[calc(100vh-5rem)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "order-1 md:order-2 md:h-[calc(100vh-5rem)] flex items-center justify-center p-6 md:p-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           "img",
           {
             src: portrait$1,
             alt: "Oswaldo Smarrelli Torrealba",
-            className: "absolute inset-0 w-full h-full object-cover"
+            className: "max-h-full w-auto max-w-full object-contain rounded-2xl shadow-2xl shadow-black/30"
           }
         ) })
       ] }) }),
@@ -436,15 +574,7 @@ function SobreMi() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream pb-20 md:pb-28", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-6", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-4xl md:text-5xl text-brand-teal text-center mb-3", children: "GALERÍA" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-muted-foreground mb-12", children: "Imágenes con historia, reflejos de un camino" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2", children: galleryImages.map((src, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "aspect-square overflow-hidden bg-muted rounded-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            src,
-            alt: `Galería ${i + 1}`,
-            loading: "lazy",
-            className: "w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          }
-        ) }, src)) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Gallery, { images: galleryImages })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ContactBand, { socials: ["Facebook", "Instagram", "X / Twitter"] })
     ] }),
@@ -646,6 +776,7 @@ const Route$4 = createFileRoute("/sitemap.xml")({
     }
   }
 });
+const heroBg1 = "/assets/image-background1-BTtnEc14.jpg";
 const Route$3 = createFileRoute("/contacto")({
   head: () => ({
     meta: [
@@ -666,13 +797,20 @@ function ContactoPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-ink", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative bg-ink text-white", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-ink via-ink to-brand-blue/30" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto px-6 py-20 md:py-28", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6", children: "HABLEMOS" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-2xl md:text-3xl text-brand-teal/90 max-w-xl leading-snug", children: "Las buenas ideas comienzan con una conversación. Estoy a un mensaje de distancia." })
-        ] })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "relative bg-ink bg-cover bg-center text-white",
+          style: { backgroundImage: `url(${heroBg1})` },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-ink/60" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto px-6 py-20 md:py-28", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-6xl text-brand-teal mb-6", children: "HABLEMOS" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-2xl md:text-3xl text-brand-teal/90 max-w-xl leading-snug", children: "Las buenas ideas comienzan con una conversación. Estoy a un mensaje de distancia." })
+            ] })
+          ]
+        }
+      ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-ink px-6 pb-20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto bg-[#6d6f72] grid md:grid-cols-2 gap-12 lg:gap-20 p-8 md:p-14 rounded-sm", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(ContactForm, { buttonClassName: "bg-brand-blue text-white hover:bg-brand-blue/90" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center", children: [
@@ -684,6 +822,7 @@ function ContactoPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
   ] });
 }
+const heroBg = "/assets/image-background-q8Yix3YT.png";
 const Route$2 = createFileRoute("/articulos")({
   head: () => ({
     meta: [
@@ -705,13 +844,20 @@ function ArticulosPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-cream", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative bg-ink text-white", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-ink via-brand-blue/40 to-ink opacity-90" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto", children: "OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm text-white/60", children: "www.oswaldosmarrelli.com" })
-        ] })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "section",
+        {
+          className: "relative bg-ink bg-cover bg-center text-white",
+          style: { backgroundImage: `url(${heroBg})` },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-ink/75" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-brand-teal", children: "OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm text-white/60", children: "www.oswaldosmarrelli.com" })
+            ] })
+          ]
+        }
+      ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-5xl mx-auto px-6 py-16 md:py-24", children: articles.map((a, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "article",
         {

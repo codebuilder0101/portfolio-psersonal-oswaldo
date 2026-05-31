@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
+import { Gallery } from "@/components/gallery";
 import { galleryImages } from "@/lib/gallery";
 import portrait from "@/assets/photo-2.jpg";
 
@@ -49,11 +50,11 @@ function SobreMi() {
                 </Link>
               </div>
             </div>
-            <div className="relative order-1 md:order-2 min-h-[50vh] md:h-[calc(100vh-5rem)]">
+            <div className="order-1 md:order-2 md:h-[calc(100vh-5rem)] flex items-center justify-center p-6 md:p-10">
               <img
                 src={portrait}
                 alt="Oswaldo Smarrelli Torrealba"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="max-h-full w-auto max-w-full object-contain rounded-2xl shadow-2xl shadow-black/30"
               />
             </div>
           </div>
@@ -96,18 +97,7 @@ function SobreMi() {
             <p className="text-center text-muted-foreground mb-12">
               Imágenes con historia, reflejos de un camino
             </p>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-              {galleryImages.map((src, i) => (
-                <div key={src} className="aspect-square overflow-hidden bg-muted rounded-sm">
-                  <img
-                    src={src}
-                    alt={`Galería ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ))}
-            </div>
+            <Gallery images={galleryImages} />
           </div>
         </section>
 
