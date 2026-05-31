@@ -1,18 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
-import { articles } from "@/lib/articles";
+import { articles, categories, formatDate, type Category } from "@/lib/articles";
 import heroBg from "@/assets/image-background.png";
 
 export const Route = createFileRoute("/articulos/")({
+  validateSearch: (search: Record<string, unknown>): { categoria?: Category } => {
+    const c = search.categoria;
+    return typeof c === "string" && (categories as readonly string[]).includes(c)
+      ? { categoria: c as Category }
+      : {};
+  },
   head: () => ({
     meta: [
       { title: "Mi opinión — Oswaldo Smarrelli" },
       {
         name: "description",
         content:
-          "Opinión con sentido: ensayos y columnas sobre política, sociedad, estrategia y emprendimiento.",
+          "Opinión con sentido: artículos sobre política, sociedad, emprendimiento y estrategia.",
       },
       { property: "og:title", content: "Mi opinión — Oswaldo Smarrelli" },
       { property: "og:description", content: "Opinión con sentido, palabras que nacen de la reflexión." },
@@ -24,7 +31,17 @@ export const Route = createFileRoute("/articulos/")({
 });
 
 function ArticulosPage() {
-  const total = articles.length;
+  const { categoria } = Route.useSearch();
+  const filtered = categoria ? articles.filter((a) => a.category === categoria) : articles;
+
+  const tabs: { label: string; value?: Category; count: number }[] = [
+    { label: "Todos", value: undefined, count: articles.length },
+    ...categories.map((c) => ({
+      label: c,
+      value: c,
+      count: articles.filter((a) => a.category === c).length,
+    })),
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
@@ -44,37 +61,73 @@ function ArticulosPage() {
           </div>
         </section>
 
-        {/* Numbered list */}
+        {/* Filter + grid */}
         <section className="bg-cream">
-          <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-            {articles.map((a, i) => (
-              <article
-                key={a.slug}
-                className="border-t border-border py-12 md:py-16 flex items-center justify-between gap-8"
-              >
-                <div className="max-w-2xl">
-                  <h2 className="font-display font-bold text-2xl md:text-3xl uppercase text-foreground mb-4 leading-tight">
-                    {a.title}
-                  </h2>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
-                    {a.excerpt}
-                  </p>
+          <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">
+            {/* Category filter */}
+            <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+              {tabs.map((t) => {
+                const active = categoria === t.value || (!categoria && !t.value);
+                return (
                   <Link
+                    key={t.label}
+                    to="/articulos"
+                    search={t.value ? { categoria: t.value } : {}}
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border transition-colors ${
+                      active
+                        ? "bg-brand-teal text-white border-brand-teal"
+                        : "bg-card text-foreground/70 border-border hover:border-brand-teal hover:text-brand-teal"
+                    }`}
+                  >
+                    {t.label}
+                    <span
+                      className={`text-xs rounded-full px-1.5 py-0.5 ${
+                        active ? "bg-white/20" : "bg-muted text-muted-foreground"
+                      }`}
+                    >
+                      {t.count}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Grid */}
+            {filtered.length === 0 ? (
+              <p className="text-center text-muted-foreground py-16">
+                No hay artículos en esta categoría.
+              </p>
+            ) : (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.map((a) => (
+                  <Link
+                    key={a.slug}
                     to="/articulos/$slug"
                     params={{ slug: a.slug }}
-                    className="inline-block bg-brand-blue text-white text-xs tracking-wide px-5 py-2.5 rounded-sm hover:bg-brand-teal transition-colors"
+                    className="group flex flex-col bg-card border border-border rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
-                    MÁS INFORMACIÓN
+                    <span className="self-start text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-teal bg-brand-teal/10 px-2.5 py-1 rounded-full mb-4">
+                      {a.category}
+                    </span>
+                    <h2 className="font-display text-xl leading-snug text-foreground transition-colors group-hover:text-brand-teal">
+                      {a.title}
+                    </h2>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-4 flex-1">
+                      {a.excerpt}
+                    </p>
+                    <div className="mt-5 pt-4 border-t border-border flex items-center justify-between gap-3">
+                      <span className="text-xs text-muted-foreground">
+                        {formatDate(a.date)} · {a.readingTime} min
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-brand-teal">
+                        Leer
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
                   </Link>
-                </div>
-                <div
-                  className="font-display font-bold text-6xl md:text-8xl text-foreground/90 shrink-0 leading-none"
-                  aria-hidden
-                >
-                  {String(total - i).padStart(2, "0")}
-                </div>
-              </article>
-            ))}
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

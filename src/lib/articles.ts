@@ -1,4 +1,4 @@
-export type Category = "Política" | "Sociedad" | "Emprendimiento" | "Estrategia" | "Pensamiento";
+export type Category = "Política" | "Sociedad" | "Emprendimiento" | "Estrategia";
 
 export interface Article {
   slug: string;
@@ -48,7 +48,7 @@ export const articles: Article[] = [
     title: "Dinámicas actuales: decadencia o evolución",
     excerpt:
       "La historia sigue un ciclo de nacimiento, desarrollo y decadencia” así opinaba el filósofo italiano Giambattista Vico, sobran evidencias históricas de momentos de esplendor y estabilidad seguidos de crisis y transformación, algo así como que no avanzamos en línea recta, solo transitamos en espirales, cambiando de formas, pero repitiendo patrones. Es probable que hoy estemos transitando uno de esos espirales en los que el mundo parece desmoronarse, Winston Churchill decía “cuanto más atrás puedas mirar, más adelante verás”.",
-    category: "Pensamiento",
+    category: "Sociedad",
     date: "2025-05-06",
     readingTime: 8,
     tags: ["historia", "ciclos", "sociedad"],
@@ -152,7 +152,7 @@ export const articles: Article[] = [
     title: 'La brecha entre "saber" y "saber hacer"',
     excerpt:
       "El genio Leonardo Da Vinci destacó la importancia de la acción sobre el conocimiento y lo dejó plasmado en la frase: “No es el saber lo que es más importante, sino el saber hacer” poderosa sentencia que aplica a cualquier gestión, ya que la posibilidad de un resultado exitoso se sustenta en el equilibrio entre el conocimiento teórico y la capacidad de aplicarlo en la práctica, si bien la inteligencia y el dominio de conceptos son fundamentales, estos por sí solos no garantizan el éxito de la gestión.",
-    category: "Pensamiento",
+    category: "Estrategia",
     date: "2025-03-25",
     readingTime: 7,
     tags: ["conocimiento", "acción", "gestión"],
@@ -363,7 +363,7 @@ export const articles: Article[] = [
   },
 ];
 
-export const categories: Category[] = ["Política", "Sociedad", "Emprendimiento", "Estrategia", "Pensamiento"];
+export const categories: Category[] = ["Política", "Sociedad", "Emprendimiento", "Estrategia"];
 
 export function formatDate(iso: string): string {
   const d = new Date(iso);

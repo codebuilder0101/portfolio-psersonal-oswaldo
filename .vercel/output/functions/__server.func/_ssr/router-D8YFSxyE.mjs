@@ -18,7 +18,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-DVgctAy9.css";
+const appCss = "/assets/styles-D7EzcSAi.css";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Toaster$1,
@@ -614,7 +614,7 @@ const articles = [
     slug: "dinamicas-actuales-decadencia-o-evolucion",
     title: "Dinámicas actuales: decadencia o evolución",
     excerpt: "La historia sigue un ciclo de nacimiento, desarrollo y decadencia” así opinaba el filósofo italiano Giambattista Vico, sobran evidencias históricas de momentos de esplendor y estabilidad seguidos de crisis y transformación, algo así como que no avanzamos en línea recta, solo transitamos en espirales, cambiando de formas, pero repitiendo patrones. Es probable que hoy estemos transitando uno de esos espirales en los que el mundo parece desmoronarse, Winston Churchill decía “cuanto más atrás puedas mirar, más adelante verás”.",
-    category: "Pensamiento",
+    category: "Sociedad",
     date: "2025-05-06",
     readingTime: 8,
     tags: ["historia", "ciclos", "sociedad"],
@@ -715,7 +715,7 @@ const articles = [
     slug: "brecha-saber-saber-hacer",
     title: 'La brecha entre "saber" y "saber hacer"',
     excerpt: "El genio Leonardo Da Vinci destacó la importancia de la acción sobre el conocimiento y lo dejó plasmado en la frase: “No es el saber lo que es más importante, sino el saber hacer” poderosa sentencia que aplica a cualquier gestión, ya que la posibilidad de un resultado exitoso se sustenta en el equilibrio entre el conocimiento teórico y la capacidad de aplicarlo en la práctica, si bien la inteligencia y el dominio de conceptos son fundamentales, estos por sí solos no garantizan el éxito de la gestión.",
-    category: "Pensamiento",
+    category: "Estrategia",
     date: "2025-03-25",
     readingTime: 7,
     tags: ["conocimiento", "acción", "gestión"],
@@ -921,6 +921,7 @@ const articles = [
     ]
   }
 ];
+const categories = ["Política", "Sociedad", "Emprendimiento", "Estrategia"];
 function formatDate(iso) {
   const d = new Date(iso);
   return d.toLocaleDateString("es-ES", { day: "2-digit", month: "long", year: "numeric" });
@@ -1111,12 +1112,16 @@ function HomePage() {
 }
 const heroBg = "/assets/image-background-q8Yix3YT.png";
 const Route$1 = createFileRoute("/articulos/")({
+  validateSearch: (search) => {
+    const c = search.categoria;
+    return typeof c === "string" && categories.includes(c) ? { categoria: c } : {};
+  },
   head: () => ({
     meta: [
       { title: "Mi opinión — Oswaldo Smarrelli" },
       {
         name: "description",
-        content: "Opinión con sentido: ensayos y columnas sobre política, sociedad, estrategia y emprendimiento."
+        content: "Opinión con sentido: artículos sobre política, sociedad, emprendimiento y estrategia."
       },
       { property: "og:title", content: "Mi opinión — Oswaldo Smarrelli" },
       { property: "og:description", content: "Opinión con sentido, palabras que nacen de la reflexión." },
@@ -1127,7 +1132,16 @@ const Route$1 = createFileRoute("/articulos/")({
   component: ArticulosPage
 });
 function ArticulosPage() {
-  const total = articles.length;
+  const { categoria } = Route$1.useSearch();
+  const filtered = categoria ? articles.filter((a) => a.category === categoria) : articles;
+  const tabs = [
+    { label: "Todos", value: void 0, count: articles.length },
+    ...categories.map((c) => ({
+      label: c,
+      value: c,
+      count: articles.filter((a) => a.category === c).length
+    }))
+  ];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-cream", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex-1", children: [
@@ -1145,36 +1159,56 @@ function ArticulosPage() {
           ]
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-5xl mx-auto px-6 py-16 md:py-24", children: articles.map((a, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "article",
-        {
-          className: "border-t border-border py-12 md:py-16 flex items-center justify-between gap-8",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-2xl", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-2xl md:text-3xl uppercase text-foreground mb-4 leading-tight", children: a.title }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm md:text-base text-muted-foreground leading-relaxed mb-6", children: a.excerpt }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Link,
-                {
-                  to: "/articulos/$slug",
-                  params: { slug: a.slug },
-                  className: "inline-block bg-brand-blue text-white text-xs tracking-wide px-5 py-2.5 rounded-sm hover:bg-brand-teal transition-colors",
-                  children: "MÁS INFORMACIÓN"
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
-              {
-                className: "font-display font-bold text-6xl md:text-8xl text-foreground/90 shrink-0 leading-none",
-                "aria-hidden": true,
-                children: String(total - i).padStart(2, "0")
-              }
-            )
-          ]
-        },
-        a.slug
-      )) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6 py-14 md:py-20", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap justify-center gap-2.5 mb-12", children: tabs.map((t) => {
+          const active = categoria === t.value || !categoria && !t.value;
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Link,
+            {
+              to: "/articulos",
+              search: t.value ? { categoria: t.value } : {},
+              className: `inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium border transition-colors ${active ? "bg-brand-teal text-white border-brand-teal" : "bg-card text-foreground/70 border-border hover:border-brand-teal hover:text-brand-teal"}`,
+              children: [
+                t.label,
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "span",
+                  {
+                    className: `text-xs rounded-full px-1.5 py-0.5 ${active ? "bg-white/20" : "bg-muted text-muted-foreground"}`,
+                    children: t.count
+                  }
+                )
+              ]
+            },
+            t.label
+          );
+        }) }),
+        filtered.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-muted-foreground py-16", children: "No hay artículos en esta categoría." }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6", children: filtered.map((a) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link,
+          {
+            to: "/articulos/$slug",
+            params: { slug: a.slug },
+            className: "group flex flex-col bg-card border border-border rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "self-start text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-teal bg-brand-teal/10 px-2.5 py-1 rounded-full mb-4", children: a.category }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-xl leading-snug text-foreground transition-colors group-hover:text-brand-teal", children: a.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-4 flex-1", children: a.excerpt }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-5 pt-4 border-t border-border flex items-center justify-between gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-muted-foreground", children: [
+                  formatDate(a.date),
+                  " · ",
+                  a.readingTime,
+                  " min"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1 text-sm font-medium text-brand-teal", children: [
+                  "Leer",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 transition-transform group-hover:translate-x-1" })
+                ] })
+              ] })
+            ]
+          },
+          a.slug
+        )) })
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ContactBand, { socials: ["Facebook", "Instagram", "X / Twitter"] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
