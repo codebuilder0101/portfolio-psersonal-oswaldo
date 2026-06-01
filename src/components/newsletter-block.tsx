@@ -1,88 +1,90 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { Mail } from "lucide-react";
+import { submitLead } from "@/lib/forms";
 
+const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+/**
+ * Newsletter signup for the author's biweekly "Análisis Quincenal".
+ * `compact` renders an inline band (used at the end of articles);
+ * default renders a full card section (used on the home page).
+ */
 export function NewsletterBlock({ compact = false }: { compact?: boolean }) {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.includes("@")) {
-      toast.error("Introduce un correo válido");
+    if (!EMAIL_RE.test(email)) {
+      toast.error("Introduce un correo electrónico válido.");
       return;
     }
-    toast.success("¡Suscripción recibida! Pronto recibirás el primer análisis.");
-    setEmail("");
+    setLoading(true);
+    try {
+      await submitLead("Newsletter", { email });
+      toast.success("¡Gracias! Te has suscrito al Análisis Quincenal.");
+      setEmail("");
+    } catch {
+      toast.error("No se pudo completar la suscripción. Inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const form = (
+    <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+      <label htmlFor={compact ? "nl-email-c" : "nl-email"} className="sr-only">
+        Tu correo electrónico
+      </label>
+      <input
+        id={compact ? "nl-email-c" : "nl-email"}
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="tu@correo.com"
+        className="flex-1 rounded-full bg-white/95 border border-white/40 px-5 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-white/60"
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className="rounded-full bg-ink text-white px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors disabled:opacity-60 whitespace-nowrap"
+      >
+        {loading ? "Enviando…" : "Suscribirme"}
+      </button>
+    </form>
+  );
 
   if (compact) {
     return (
-      <form
-        onSubmit={handleSubmit}
-        className="border-t border-b border-border py-12 my-12 grid md:grid-cols-2 gap-8 items-center"
-      >
+      <section className="my-14 rounded-2xl bg-brand-teal text-white p-7 md:p-9 grid md:grid-cols-2 gap-6 items-center">
         <div>
-          <h3 className="font-display text-2xl mb-2">Suscríbete al Análisis Quincenal</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Cada dos semanas, una reflexión profunda en tu correo. Sin ruido.
+          <h3 className="font-display font-bold text-2xl mb-1">Análisis Quincenal</h3>
+          <p className="text-white/85 text-sm leading-relaxed">
+            Cada dos semanas, una reflexión en tu correo. Sin ruido.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="tu@correo.com"
-            className="flex-1 bg-transparent border border-border px-4 py-3 font-mono text-sm focus:outline-none focus:border-foreground transition-colors"
-          />
-          <button
-            type="submit"
-            className="bg-foreground text-background font-mono text-xs uppercase tracking-widest px-6 py-3 hover:bg-accent transition-colors"
-          >
-            Suscribirme
-          </button>
-        </div>
-      </form>
+        {form}
+      </section>
     );
   }
 
   return (
-    <section className="my-24 bg-foreground text-background p-10 md:p-20 rounded-sm grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 block">
-          Newsletter
+    <section className="bg-brand-teal text-white">
+      <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 text-center">
+        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+          <Mail className="h-4 w-4" /> Newsletter
         </span>
-        <h2 className="font-display text-4xl md:text-5xl italic mb-6 text-balance">
+        <h2 className="font-display font-bold text-3xl md:text-4xl mt-4 mb-3">
           Análisis Quincenal
         </h2>
-        <p className="opacity-70 leading-relaxed text-pretty max-w-md">
-          Cada dos semanas, una reflexión profunda sobre los eventos que definen nuestra
-          época. Sin ruido. Sólo ideas que merecen tu tiempo.
+        <p className="text-white/85 max-w-xl mx-auto leading-relaxed mb-8">
+          Cada dos semanas, una reflexión profunda sobre los temas que definen nuestra época.
+          Únete a la comunidad de lectores.
         </p>
+        <div className="max-w-xl mx-auto">{form}</div>
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <label className="font-mono text-[10px] uppercase tracking-widest opacity-60" htmlFor="nl-email">
-          Tu correo electrónico
-        </label>
-        <input
-          id="nl-email"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="nombre@correo.com"
-          className="bg-transparent border-b border-background/30 py-3 focus:border-accent outline-none font-mono text-sm placeholder:text-background/30"
-        />
-        <button
-          type="submit"
-          className="bg-accent text-accent-foreground font-mono text-xs uppercase tracking-widest py-4 mt-4 hover:bg-background hover:text-foreground transition-colors"
-        >
-          Suscribirme →
-        </button>
-        <p className="font-mono text-[10px] uppercase tracking-widest opacity-40 mt-2">
-          Sin spam. Cancela cuando quieras.
-        </p>
-      </form>
     </section>
   );
 }

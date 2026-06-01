@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Mail } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm, SocialLinks } from "@/components/contact-form";
+import { site } from "@/lib/site";
 import heroBg1 from "@/assets/image-background1.jpg";
 
 export const Route = createFileRoute("/contacto")({
@@ -51,7 +53,15 @@ function ContactoPage() {
             </div>
             {/* Contact info */}
             <div className="bg-brand-teal text-white p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-              <p className="text-sm text-white/85 mb-5">Correo electrónico:</p>
+              <p className="text-sm text-white/85 mb-2">Correo electrónico:</p>
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex items-center gap-2 text-lg font-medium hover:underline underline-offset-4 mb-8 break-all"
+              >
+                <Mail className="h-5 w-5 shrink-0" />
+                {site.email}
+              </a>
+              <p className="text-sm text-white/85 mb-4">Sígueme</p>
               <SocialLinks only={["Facebook", "Instagram", "X / Twitter"]} tone="brand" />
             </div>
           </div>

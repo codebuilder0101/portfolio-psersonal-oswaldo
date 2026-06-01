@@ -2,6 +2,7 @@ import { useState, type ComponentType } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { submitLead } from "@/lib/forms";
 
 const schema = z.object({
   nombre: z.string().trim().min(2, "Tu nombre, por favor").max(100),
@@ -34,10 +35,15 @@ export function ContactForm({
     }
     setErrors({});
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 600));
-    setSubmitting(false);
-    toast.success("Mensaje enviado. Te respondo pronto.");
-    setForm({ nombre: "", mensaje: "" });
+    try {
+      await submitLead("Contacto", { nombre: form.nombre, mensaje: form.mensaje });
+      toast.success("Mensaje enviado. Te respondo pronto.");
+      setForm({ nombre: "", mensaje: "" });
+    } catch {
+      toast.error("No se pudo enviar el mensaje. Inténtalo de nuevo.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const light = tone === "light";

@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getArticle, getRelated, formatDate } from "@/lib/articles";
+import { ShareBar } from "@/components/share-bar";
+import { NewsletterBlock } from "@/components/newsletter-block";
 import portrait from "@/assets/oswaldo-portrait.jpg";
 
 export const Route = createFileRoute("/articulos/$slug")({
@@ -107,6 +109,9 @@ function ArticlePage() {
               if (block.type === "quote") return <blockquote key={i}>{block.text}</blockquote>;
               return <p key={i}>{block.text}</p>;
             })}
+
+            <ShareBar title={article.title} slug={article.slug} />
+            <NewsletterBlock compact />
           </div>
 
           {/* Author */}
