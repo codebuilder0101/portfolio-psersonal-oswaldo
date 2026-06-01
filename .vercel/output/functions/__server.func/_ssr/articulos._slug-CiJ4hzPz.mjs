@@ -1,8 +1,8 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { a as SiteHeader, S as SiteFooter } from "./site-footer-BS3WVevL.mjs";
-import { a as Route, f as formatDate } from "./router-CzOu8QcY.mjs";
-import { N as NewsletterBlock, p as portrait } from "./oswaldo-portrait-CB5_pz-Y.mjs";
+import { a as Route, f as formatDate } from "./router-C_KUqOl6.mjs";
+import { N as NewsletterBlock, p as portrait } from "./oswaldo-portrait-CY_2R9MR.mjs";
 import "../_libs/sonner.mjs";
 import { A as ArrowLeft, a as ArrowRight, d as Linkedin, C as Check, L as Link2 } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
@@ -20,7 +20,7 @@ import "stream";
 import "../_libs/isbot.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
-import "./forms-DXzJfmEe.mjs";
+import "./forms-CzoxsSfr.mjs";
 function XIcon({ className }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", fill: "currentColor", className, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" }) });
 }

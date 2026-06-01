@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
-import { a as submitLead } from "./forms-DXzJfmEe.mjs";
+import { a as submitLead } from "./forms-CzoxsSfr.mjs";
 import { M as Mail } from "../_libs/lucide-react.mjs";
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 function NewsletterBlock({ compact = false }) {

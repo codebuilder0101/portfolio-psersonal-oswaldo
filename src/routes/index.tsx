@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactBand } from "@/components/contact-band";
-import { MediaStrip } from "@/components/media-strip";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { NewsletterBlock } from "@/components/newsletter-block";
 // TODO: replace with the provided home hero photo (sitting portrait).

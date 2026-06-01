@@ -1,8 +1,8 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { a as SiteHeader, S as SiteFooter } from "./site-footer-BS3WVevL.mjs";
-import { C as ContactBand } from "./contact-band-ByW3HjSP.mjs";
-import { s as site } from "./forms-DXzJfmEe.mjs";
-import { p as portrait, N as NewsletterBlock } from "./oswaldo-portrait-CB5_pz-Y.mjs";
+import { C as ContactBand } from "./contact-band-DuwYdhBE.mjs";
+import { s as site } from "./forms-CzoxsSfr.mjs";
+import { p as portrait, N as NewsletterBlock } from "./oswaldo-portrait-CY_2R9MR.mjs";
 import "../_libs/sonner.mjs";
 import { I as Instagram, a as ArrowRight } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__react-router.mjs";
@@ -19,49 +19,8 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-import "./contact-form-C73HDMn0.mjs";
+import "./contact-form-Bq80LZ0I.mjs";
 import "../_libs/zod.mjs";
-function MediaStrip() {
-  const outlets = site.mediaOutlets;
-  const hasLogos = outlets.length > 0;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream border-y border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6 py-12 md:py-16", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-xs font-semibold uppercase tracking-[0.25em] text-brand-teal mb-8", children: "Visto en" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-16", children: hasLogos ? outlets.map(
-      (o) => o.url ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "a",
-        {
-          href: o.url,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "opacity-60 hover:opacity-100 transition-opacity",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Logo, { outlet: o })
-        },
-        o.name
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "opacity-60", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Logo, { outlet: o }) }, o.name)
-    ) : Array.from({ length: 5 }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: "h-9 w-28 rounded-md bg-muted border border-border",
-        "aria-hidden": true
-      },
-      i
-    )) })
-  ] }) });
-}
-function Logo({ outlet }) {
-  if (outlet.logo) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "img",
-      {
-        src: outlet.logo,
-        alt: outlet.name,
-        className: "h-8 md:h-9 w-auto object-contain grayscale",
-        loading: "lazy"
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-semibold text-xl text-foreground/70", children: outlet.name });
-}
 function InstagramFeed() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6 py-16 md:py-24", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-end justify-between gap-4 mb-10", children: [
@@ -134,7 +93,6 @@ function HomePage() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-base md:text-lg leading-relaxed text-foreground/80 max-w-md text-justify", children: "Creo en la fuerza de las palabras, en el poder de las frases y en su capacidad para despertar y mover voluntades, no busco tener la razón, busco sembrar dudas y crear criterios nuevos. No escribo para gustar, cada artículo es una forma de ordenar lo que pienso y compartirlos es acercarme a quienes como yo siguen creyendo que las ideas pueden cambiar realidades." })
         ] }) })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(MediaStrip, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted border-y border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1440px] mx-auto px-6 lg:px-10 py-20 md:py-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-3 gap-8 lg:gap-10", children: columns.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-card rounded-2xl border border-border p-9 md:p-10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block h-1 w-10 rounded-full bg-brand-teal mb-6" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-2xl text-foreground mb-4 leading-tight", children: c.title }),

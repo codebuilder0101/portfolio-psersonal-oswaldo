@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { a as SiteHeader, S as SiteFooter } from "./site-footer-BS3WVevL.mjs";
-import { C as ContactForm, S as SocialLinks } from "./contact-form-C73HDMn0.mjs";
-import { s as site } from "./forms-DXzJfmEe.mjs";
+import { C as ContactForm, S as SocialLinks } from "./contact-form-Bq80LZ0I.mjs";
+import { s as site } from "./forms-CzoxsSfr.mjs";
 import "../_libs/sonner.mjs";
 import { M as Mail } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__react-router.mjs";

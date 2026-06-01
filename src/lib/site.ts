@@ -22,11 +22,4 @@ export const site = {
    * Leave empty to fall back to opening the visitor's email client (mailto:).
    */
   formEndpoint: "",
-
-  /**
-   * "Visto en" — media outlets where the author has been featured.
-   * Add { name, logo (imported asset or URL), url } items with the REAL logos.
-   * Leave empty until the real assets are provided (placeholders render meanwhile).
-   */
-  mediaOutlets: [] as { name: string; logo?: string; url?: string }[],
 };

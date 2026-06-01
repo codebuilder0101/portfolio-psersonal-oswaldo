@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { S as SocialLinks, C as ContactForm } from "./contact-form-C73HDMn0.mjs";
+import { S as SocialLinks, C as ContactForm } from "./contact-form-Bq80LZ0I.mjs";
 function ContactBand({
   socials
 }) {
