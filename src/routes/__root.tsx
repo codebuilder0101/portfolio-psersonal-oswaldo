@@ -15,7 +15,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">Error 404</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-terracotta mb-6">Error 404</p>
         <h1 className="font-display text-6xl md:text-7xl mb-6">Página no encontrada</h1>
         <p className="text-muted-foreground mb-8">
           La página que buscas no existe o ha sido reubicada.

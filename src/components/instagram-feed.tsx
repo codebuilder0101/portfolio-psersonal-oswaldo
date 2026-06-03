@@ -7,7 +7,7 @@ export function InstagramFeed() {
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-terracotta">
               Instagram
             </span>
           </div>

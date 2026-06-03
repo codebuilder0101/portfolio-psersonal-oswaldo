@@ -13,13 +13,13 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-brand-teal/95 backdrop-blur-sm border-b border-white/10">
       <div className="w-full px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between gap-4">
         <Link to="/" className="leading-tight">
-          <span className="block font-display font-bold text-xl md:text-2xl text-brand-teal tracking-tight">
+          <span className="block font-display font-bold text-xl md:text-2xl text-white tracking-tight">
             Oswaldo Smarrelli
           </span>
-          <span className="block text-[10px] md:text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal mt-1">
+          <span className="block text-[10px] md:text-xs font-semibold uppercase tracking-[0.22em] text-white mt-1">
             
           </span>
         </Link>
@@ -29,8 +29,8 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              className="pb-0.5 font-medium text-foreground/70 hover:text-brand-teal transition-colors"
-              activeProps={{ className: "text-brand-teal font-semibold underline underline-offset-8 decoration-2" }}
+              className="pb-0.5 font-medium text-white/75 hover:text-white transition-colors"
+              activeProps={{ className: "text-white font-semibold underline underline-offset-8 decoration-2 decoration-brand-terracotta" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
@@ -41,7 +41,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden p-2 -mr-2 text-ink"
+          className="md:hidden p-2 -mr-2 text-white"
           aria-label="Abrir menú"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -49,14 +49,14 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="md:hidden border-t border-border bg-cream">
+        <nav className="md:hidden border-t border-white/10 bg-brand-teal">
           <ul className="px-6 py-3 flex flex-col gap-1 text-sm">
             {navItems.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="block py-2.5 px-3 rounded-lg font-medium text-foreground/70 hover:text-brand-teal transition-colors"
-                  activeProps={{ className: "text-brand-teal font-semibold bg-brand-teal/10" }}
+                  className="block py-2.5 px-3 rounded-lg font-medium text-white/75 hover:text-white transition-colors"
+                  activeProps={{ className: "text-white font-semibold bg-white/10" }}
                   activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
                 >

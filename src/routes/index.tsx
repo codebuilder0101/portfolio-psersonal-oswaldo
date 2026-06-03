@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ContactBand } from "@/components/contact-band";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { NewsletterBlock } from "@/components/newsletter-block";
 // TODO: replace with the provided home hero photo (sitting portrait).
-import portrait from "@/assets/oswaldo-portrait.jpg";
+import portrait from "@/assets/oswaldo-portrait.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,11 +42,6 @@ const columns = [
     title: "Participación",
     body: "Tú participación es valiosa: cuantas más voces se sumen al diálogo, más posibilidades tendremos de construir ideas con impacto. Explora, céntrate en los temas que más te interesen y comparte aquello que resuene contigo.",
   },
-];
-
-const stats = [
-  { value: "+ 20 AÑOS", label: "de experiencia" },
-  { value: "100%", label: "Confianza" },
 ];
 
 function HomePage() {
@@ -91,7 +85,7 @@ function HomePage() {
                   key={c.title}
                   className="bg-card rounded-2xl border border-border p-9 md:p-10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
-                  <span className="block h-1 w-10 rounded-full bg-brand-teal mb-6" />
+                  <span className="block h-1 w-10 rounded-full bg-brand-terracotta mb-6" />
                   <h2 className="font-display font-bold text-2xl text-foreground mb-4 leading-tight">
                     {c.title}
                   </h2>
@@ -104,32 +98,11 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Statement + stats */}
-        <section className="bg-card border-y border-border">
-          <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-snug text-foreground text-justify">
-              Las ideas nos unen y las palabras nos conectan, aquí empieza nuestro diálogo
-            </h2>
-            <div className="flex gap-10 md:gap-20">
-              {stats.map((s) => (
-                <div key={s.label} className="border-l-2 border-brand-teal/30 pl-5">
-                  <div className="font-display font-bold text-4xl md:text-5xl text-brand-teal leading-none whitespace-nowrap">
-                    {s.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-2">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Instagram feed */}
         <InstagramFeed />
 
         {/* Newsletter — comunidad */}
         <NewsletterBlock />
-
-        <ContactBand socials={["Facebook", "Instagram", "LinkedIn", "X / Twitter"]} />
       </main>
       <SiteFooter />
     </div>

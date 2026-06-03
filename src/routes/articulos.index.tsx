@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ContactBand } from "@/components/contact-band";
 import { articles, categories, formatDate, type Category } from "@/lib/articles";
 import heroBg from "@/assets/image-background.png";
 
@@ -54,7 +53,7 @@ function ArticulosPage() {
         >
           <div className="absolute inset-0 bg-ink/75" />
           <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
-            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-brand-teal">
+            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-white">
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>
             <p className="mt-6 text-sm text-white/60">www.oswaldosmarrelli.com</p>
@@ -106,7 +105,7 @@ function ArticulosPage() {
                     params={{ slug: a.slug }}
                     className="group flex flex-col bg-card border border-border rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
-                    <span className="self-start text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-teal bg-brand-teal/10 px-2.5 py-1 rounded-full mb-4">
+                    <span className="self-start text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-terracotta bg-brand-terracotta/10 px-2.5 py-1 rounded-full mb-4">
                       {a.category}
                     </span>
                     <h2 className="font-display text-xl leading-snug text-foreground transition-colors group-hover:text-brand-teal">
@@ -130,8 +129,6 @@ function ArticulosPage() {
             )}
           </div>
         </section>
-
-        <ContactBand socials={["Facebook", "Instagram", "X / Twitter"]} />
       </main>
       <SiteFooter />
     </div>

@@ -37,10 +37,10 @@ function ContactoPage() {
         <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28">
           {/* Heading */}
           <div className="mb-12 md:mb-16">
-            <h1 className="font-display font-bold text-4xl md:text-6xl text-brand-teal mb-5">
+            <h1 className="font-display font-bold text-4xl md:text-6xl text-white mb-5">
               HABLEMOS
             </h1>
-            <p className="font-display text-2xl md:text-3xl text-brand-teal/90 max-w-xl leading-snug">
+            <p className="font-display text-2xl md:text-3xl text-white/90 max-w-xl leading-snug">
               Las buenas ideas comienzan con una conversación. Estoy a un mensaje de distancia.
             </p>
           </div>

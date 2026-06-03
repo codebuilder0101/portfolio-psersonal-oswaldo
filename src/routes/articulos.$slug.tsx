@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { getArticle, getRelated, formatDate } from "@/lib/articles";
 import { ShareBar } from "@/components/share-bar";
 import { NewsletterBlock } from "@/components/newsletter-block";
-import portrait from "@/assets/oswaldo-portrait.jpg";
+import portrait from "@/assets/oswaldo-portrait.jpeg";
 
 export const Route = createFileRoute("/articulos/$slug")({
   loader: ({ params }) => {
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/articulos/$slug")({
       <SiteHeader />
       <main className="flex-1 grid place-items-center px-6 py-24">
         <div className="text-center max-w-md">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal mb-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-terracotta mb-5">
             Error 404
           </p>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-6">
@@ -123,7 +123,7 @@ function ArticlePage() {
                 className="size-16 md:size-20 object-cover rounded-full flex-shrink-0"
               />
               <div>
-                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-teal mb-1">
+                <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-terracotta mb-1">
                   Sobre el autor
                 </span>
                 <h3 className="font-display font-bold text-xl text-foreground mb-2">
@@ -158,7 +158,7 @@ function ArticlePage() {
                     params={{ slug: a.slug }}
                     className="group flex flex-col bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
                   >
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-teal mb-3">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-terracotta mb-3">
                       {a.category}
                     </span>
                     <h3 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-brand-teal">

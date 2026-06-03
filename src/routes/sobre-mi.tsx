@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ContactBand } from "@/components/contact-band";
 import { Gallery } from "@/components/gallery";
 import { galleryImages } from "@/lib/gallery";
 import portrait from "@/assets/photo-2.jpg";
@@ -34,16 +33,16 @@ function SobreMi() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative bg-brand-blue text-white">
+        <section className="relative bg-cream">
           <div className="grid md:grid-cols-2 items-stretch">
             <div className="flex items-center px-6 md:px-14 lg:px-20 py-16 md:py-20 order-2 md:order-1">
               <div className="max-w-md">
-                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 text-balance">
+                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 text-balance text-foreground">
                   ¿QUIÉN ES OSWALDO SMARRELLI TORREALBA?
                 </h1>
                 <Link
                   to="/contacto"
-                  className="group inline-flex items-center gap-2 rounded-full bg-brand-teal text-white px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-white hover:text-brand-blue transition-colors"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-blue text-white px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-brand-blue/90 transition-colors"
                 >
                   ESCRÍBEME
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -61,7 +60,7 @@ function SobreMi() {
         </section>
 
         {/* Bio */}
-        <section className="bg-cream">
+        <section className="bg-muted border-t border-border">
           <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
             <h2 className="font-display font-bold text-3xl md:text-4xl text-brand-teal mb-10">
               Desafiando límites
@@ -89,7 +88,7 @@ function SobreMi() {
         </section>
 
         {/* Gallery */}
-        <section className="bg-muted border-y border-border py-16 md:py-24">
+        <section className="bg-cream border-t border-border py-16 md:py-24">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="font-display font-bold text-4xl md:text-5xl text-brand-teal text-center mb-3">
               GALERÍA
@@ -100,8 +99,6 @@ function SobreMi() {
             <Gallery images={galleryImages} />
           </div>
         </section>
-
-        <ContactBand socials={["Facebook", "Instagram", "X / Twitter"]} />
       </main>
       <SiteFooter />
     </div>
