@@ -51,20 +51,20 @@ function HomePage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative">
-          <div className="grid md:grid-cols-2 items-stretch">
-            <div className="md:h-[calc(100vh-5rem)] bg-muted">
-              <img
-                src={portrait}
-                alt="Retrato de Oswaldo Smarrelli"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex items-center justify-center px-6 md:px-12 lg:px-20 py-12 md:py-16">
-              <div className="w-full max-w-2xl">
-                <h1 className="font-display font-bold text-4xl xl:text-5xl leading-[1.1] text-brand-teal mb-6 lg:whitespace-nowrap">
+          <div className="relative md:h-[calc(100vh-5rem)] min-h-[32rem]">
+            <img
+              src={portrait}
+              alt="Retrato de Oswaldo Smarrelli"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+            {/* Velo de contraste: oscurece sólo el lado del texto, la foto se mantiene */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent md:bg-gradient-to-l md:from-black/80 md:via-black/40 md:to-transparent" />
+            <div className="relative h-full flex items-end md:items-center justify-start md:justify-end px-6 md:px-12 lg:px-20 py-12 md:py-16">
+              <div className="w-full max-w-xl text-white">
+                <h1 className="font-display font-bold text-4xl xl:text-5xl leading-[1.1] mb-6 lg:whitespace-nowrap drop-shadow-sm">
                   CRITERIOS Y PROPÓSITOS
                 </h1>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-md text-justify">
+                <p className="text-base md:text-lg leading-relaxed text-white/90 max-w-md text-justify">
                   Creo en la fuerza de las palabras, en el poder de las frases y en su capacidad
                   para despertar y mover voluntades, no busco tener la razón, busco sembrar dudas y
                   crear criterios nuevos. No escribo para gustar, cada artículo es una forma de
