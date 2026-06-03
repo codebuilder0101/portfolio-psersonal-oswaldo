@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+
+const PREVIEW_COUNT = 4;
 
 export function Gallery({ images }: { images: string[] }) {
   const [index, setIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
   const open = index !== null;
+  const shown = expanded ? images : images.slice(0, PREVIEW_COUNT);
 
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
@@ -32,24 +36,40 @@ export function Gallery({ images }: { images: string[] }) {
 
   return (
     <>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 md:gap-3">
-        {images.map((src, i) => (
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+        {shown.map((src, i) => (
           <button
             key={src}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Ver imagen ${i + 1}`}
-            className="group aspect-square overflow-hidden rounded-xl bg-muted ring-1 ring-border cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+            className="group relative aspect-square overflow-hidden rounded-2xl bg-muted ring-1 ring-border shadow-sm hover:shadow-xl transition-shadow cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
           >
             <img
               src={src}
               alt={`Galería ${i + 1}`}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+            <span className="pointer-events-none absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors" />
           </button>
         ))}
       </div>
+
+      {images.length > PREVIEW_COUNT && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            className="group inline-flex items-center gap-2 rounded-full border border-brand-teal/30 bg-card px-8 py-3 text-sm font-semibold text-brand-teal shadow-sm hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors"
+          >
+            {expanded ? "Ver menos" : "Ver más"}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
+      )}
 
       {open && (
         <div
