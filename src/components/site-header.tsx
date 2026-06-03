@@ -5,7 +5,8 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { to: "/", label: "Inicio" },
   { to: "/sobre-mi", label: "Sobre mí" },
-  { to: "/articulos", label: "Mi opinión" },
+  { to: "/articulos", label: "Mis artículos" },
+  { to: "/frases", label: "El poder de las frases" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
 
@@ -24,7 +25,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm">
           {navItems.map((item) => (
             <Link
               key={item.to}

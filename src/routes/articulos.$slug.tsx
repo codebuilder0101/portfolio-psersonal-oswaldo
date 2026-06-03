@@ -60,7 +60,7 @@ export const Route = createFileRoute("/articulos/$slug")({
             to="/articulos"
             className="inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors"
           >
-            <ArrowLeft className="h-4 w-4" /> Volver a Mi opinión
+            <ArrowLeft className="h-4 w-4" /> Volver a Mis artículos
           </Link>
         </div>
       </main>
@@ -84,12 +84,12 @@ function ArticlePage() {
       <main className="flex-1">
         <article>
           {/* Header */}
-          <header className="max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-8">
+          <header className="max-w-2xl mx-auto px-6 pt-12 md:pt-16 pb-8">
             <Link
               to="/articulos"
               className="inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors mb-8"
             >
-              <ArrowLeft className="h-4 w-4" /> Volver a Mi opinión
+              <ArrowLeft className="h-4 w-4" /> Volver a Mis artículos
             </Link>
             
             <h1 className="font-display font-bold text-4xl md:text-5xl leading-[1.1] text-foreground text-balance mb-6">
@@ -97,12 +97,12 @@ function ArticlePage() {
             </h1>
           </header>
 
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mx-auto px-6">
             <hr className="border-border" />
           </div>
 
           {/* Body */}
-          <div className="max-w-6xl mx-auto px-6 pt-10 prose-editorial">
+          <div className="max-w-2xl mx-auto px-6 pt-10 prose-editorial">
             {article.body.map((block: { type: string; text: string }, i: number) => {
               if (block.type === "h2") return <h2 key={i}>{block.text}</h2>;
               if (block.type === "h3") return <h3 key={i}>{block.text}</h3>;

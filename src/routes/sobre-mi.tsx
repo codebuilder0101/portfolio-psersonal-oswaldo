@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Gallery } from "@/components/gallery";
 import { galleryImages } from "@/lib/gallery";
-import portrait from "@/assets/photo-2.jpg";
+import portrait from "@/assets/photo-2.jpeg";
 
 export const Route = createFileRoute("/sobre-mi")({
   head: () => ({

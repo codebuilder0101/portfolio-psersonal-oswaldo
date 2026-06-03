@@ -51,11 +51,11 @@ function HomePage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative">
-          <div className="relative md:h-[calc(100vh-5rem)] min-h-[32rem]">
+          <div className="relative md:h-[calc(100vh-5rem)] min-h-[32rem] overflow-hidden">
             <img
               src={portrait}
               alt="Retrato de Oswaldo Smarrelli"
-              className="absolute inset-0 w-full h-full object-cover object-top"
+              className="absolute inset-0 w-full h-full object-cover object-top origin-top scale-[1.2] md:-translate-x-[9%]"
             />
             {/* Velo de contraste: oscurece sólo el lado del texto, la foto se mantiene */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent md:bg-gradient-to-l md:from-black/80 md:via-black/40 md:to-transparent" />

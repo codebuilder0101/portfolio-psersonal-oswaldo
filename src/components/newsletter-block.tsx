@@ -58,13 +58,11 @@ export function NewsletterBlock({ compact = false }: { compact?: boolean }) {
 
   if (compact) {
     return (
-      <section className="my-14 rounded-2xl bg-brand-teal text-white p-7 md:p-9 grid md:grid-cols-2 gap-6 items-center">
-        <div>
-          <h3 className="font-display font-bold text-2xl mb-1">Análisis Quincenal</h3>
-          <p className="text-white/85 text-sm leading-relaxed">
-            Cada dos semanas, una reflexión en tu correo. Sin ruido.
-          </p>
-        </div>
+      <section className="my-14 rounded-2xl bg-brand-teal text-white p-7 md:p-9">
+        <h3 className="font-display font-bold text-2xl mb-1">Análisis Quincenal</h3>
+        <p className="text-white/85 text-sm leading-relaxed mb-5">
+          Cada dos semanas, una reflexión en tu correo. Sin ruido.
+        </p>
         {form}
       </section>
     );

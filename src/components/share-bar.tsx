@@ -56,7 +56,7 @@ export function ShareBar({ title, slug }: { title: string; slug: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Compartir en ${i.label}`}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-white hover:bg-brand-teal hover:border-brand-teal transition-colors"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-white hover:bg-brand-terracotta hover:border-brand-terracotta transition-colors"
         >
           <i.icon className="h-4 w-4" />
         </a>
@@ -65,7 +65,7 @@ export function ShareBar({ title, slug }: { title: string; slug: string }) {
         type="button"
         onClick={copy}
         aria-label={copied ? "Enlace copiado" : "Copiar enlace"}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-white hover:bg-brand-teal hover:border-brand-teal transition-colors cursor-pointer"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground/70 hover:text-white hover:bg-brand-terracotta hover:border-brand-terracotta transition-colors cursor-pointer"
       >
         {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
       </button>

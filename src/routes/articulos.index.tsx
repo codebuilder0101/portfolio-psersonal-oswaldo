@@ -14,13 +14,13 @@ export const Route = createFileRoute("/articulos/")({
   },
   head: () => ({
     meta: [
-      { title: "Mi opinión — Oswaldo Smarrelli" },
+      { title: "Mis artículos — Oswaldo Smarrelli" },
       {
         name: "description",
         content:
           "Opinión con sentido: artículos sobre política, sociedad, emprendimiento y estrategia.",
       },
-      { property: "og:title", content: "Mi opinión — Oswaldo Smarrelli" },
+      { property: "og:title", content: "Mis artículos — Oswaldo Smarrelli" },
       { property: "og:description", content: "Opinión con sentido, palabras que nacen de la reflexión." },
       { property: "og:url", content: "/articulos" },
     ],
@@ -111,7 +111,7 @@ function ArticulosPage() {
                     <h2 className="font-display text-xl leading-snug text-foreground transition-colors group-hover:text-brand-teal">
                       {a.title}
                     </h2>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-4 flex-1">
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1 text-justify">
                       {a.excerpt}
                     </p>
                     <div className="mt-5 pt-4 border-t border-border flex items-center justify-between gap-3">
@@ -119,7 +119,7 @@ function ArticulosPage() {
                         {formatDate(a.date)} · {a.readingTime} min
                       </span>
                       <span className="inline-flex items-center gap-1 text-sm font-medium text-brand-teal">
-                        Leer
+                        Leer más
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>

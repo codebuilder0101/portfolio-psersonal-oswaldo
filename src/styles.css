@@ -130,11 +130,14 @@
   line-height: 1.8;
   color: var(--foreground);
 }
-.prose-editorial > * + * { margin-top: 1.4em; }
+.prose-editorial > * + * { margin-top: 1.7em; }
 .prose-editorial > :first-child { margin-top: 0; }
+/* Cuerpo justificado, sin cortar palabras (sin guionado) */
 .prose-editorial p {
-  text-wrap: pretty;
-  hyphens: auto;
+  text-align: justify;
+  hyphens: none;
+  -webkit-hyphens: none;
+  overflow-wrap: break-word;
 }
 
 /* Subtítulos */
@@ -145,8 +148,8 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--foreground);
-  margin-top: 2.75rem;
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0.65rem;
 }
 .prose-editorial h3 {
   font-family: var(--font-display);
@@ -154,7 +157,7 @@
   line-height: 1.25;
   font-weight: 600;
   color: var(--foreground);
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
