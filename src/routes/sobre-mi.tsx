@@ -33,28 +33,28 @@ function SobreMi() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative bg-cream">
-          <div className="grid md:grid-cols-2 items-stretch">
-            <div className="flex items-center px-6 md:px-14 lg:px-20 py-16 md:py-20 order-2 md:order-1">
-              <div className="max-w-md">
-                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 text-balance text-foreground">
+        <section className="relative">
+          <div className="relative md:h-[calc(100vh-5rem)] min-h-[30rem] overflow-hidden">
+            <img
+              src={portrait}
+              alt="Oswaldo Smarrelli Torrealba"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+            {/* Velo de contraste para el texto (lado izquierdo / parte inferior en móvil) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent md:bg-gradient-to-r md:from-black/90 md:via-black/55 md:to-transparent" />
+            <div className="relative h-full flex items-end md:items-center justify-start px-6 md:px-12 lg:px-20 py-12 md:py-16">
+              <div className="w-full max-w-xl text-white">
+                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-8 text-balance drop-shadow-sm">
                   ¿QUIÉN ES OSWALDO SMARRELLI TORREALBA?
                 </h1>
                 <Link
-                  to="/contacto"
-                  className="group inline-flex items-center gap-2 rounded-full bg-brand-blue text-white px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-brand-blue/90 transition-colors"
+                  to="/articulos"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white text-brand-blue px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-cream hover:text-brand-blue transition-colors"
                 >
                   ESCRÍBEME
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
-            <div className="order-1 md:order-2 md:h-[calc(100vh-5rem)] flex items-center justify-center p-6 md:p-10">
-              <img
-                src={portrait}
-                alt="Oswaldo Smarrelli Torrealba"
-                className="max-h-full w-auto max-w-full object-contain rounded-2xl shadow-2xl shadow-black/30"
-              />
             </div>
           </div>
         </section>
