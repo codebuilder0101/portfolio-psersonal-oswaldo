@@ -109,7 +109,10 @@ function ArticlePage() {
               if (block.type === "quote") return <blockquote key={i}>{block.text}</blockquote>;
               return <p key={i}>{block.text}</p>;
             })}
+          </div>
 
+          {/* Compartir + Newsletter (fuera de prose para no heredar estilos) */}
+          <div className="max-w-2xl mx-auto px-6">
             <ShareBar title={article.title} slug={article.slug} />
             <NewsletterBlock compact />
           </div>

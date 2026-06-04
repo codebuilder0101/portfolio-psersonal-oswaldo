@@ -4,7 +4,7 @@ import { b as createRouter, a as createRootRouteWithContext, u as useRouter, L a
 import { H as notFound } from "../_libs/tanstack__router-core.mjs";
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { T as Toaster$1, t as toast } from "../_libs/sonner.mjs";
-import { a as ArrowRight, M as Mail, A as ArrowLeft, I as Instagram, X, g as Menu, b as ChevronDown, c as ChevronLeft, d as ChevronRight, U as User, P as Phone, F as Facebook, f as Linkedin, e as Clock, C as Check, L as Link2 } from "../_libs/lucide-react.mjs";
+import { a as ArrowRight, M as Mail, A as ArrowLeft, I as Instagram, X, g as Menu, b as ChevronDown, c as ChevronLeft, d as ChevronRight, U as User, P as Phone, F as Facebook, f as Linkedin, C as Check, L as Link2, e as Clock } from "../_libs/lucide-react.mjs";
 import { o as objectType, s as stringType, u as unionType, l as literalType } from "../_libs/zod.mjs";
 import "../_libs/react-dom.mjs";
 import "util";
@@ -18,7 +18,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-CWrQcMBe.css";
+const appCss = "/assets/styles-Dx9Czos5.css";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Toaster$1,
@@ -875,7 +875,7 @@ const site = {
 };
 async function submitLead(kind, data) {
   if (typeof window === "undefined") return;
-  const subject = kind === "Newsletter" ? "Suscripción · Análisis Quincenal" : "Mensaje desde oswaldosmarrelli.com";
+  const subject = "Mensaje desde oswaldosmarrelli.com";
   const body = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n");
   window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
     subject
@@ -1142,66 +1142,15 @@ const Route$3 = createFileRoute("/articulos")({
 function ArticulosLayout() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
 }
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 function NewsletterBlock({ compact = false }) {
-  const [email, setEmail] = reactExports.useState("");
-  const [loading, setLoading] = reactExports.useState(false);
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (!EMAIL_RE.test(email)) {
-      toast.error("Introduce un correo electrónico válido.");
-      return;
-    }
-    setLoading(true);
-    try {
-      await submitLead("Newsletter", { email });
-      toast.success("¡Gracias! Te has suscrito al Análisis Quincenal.");
-      setEmail("");
-    } catch {
-      toast.error("No se pudo completar la suscripción. Inténtalo de nuevo.");
-    } finally {
-      setLoading(false);
-    }
-  };
-  const form = /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit, className: "flex flex-col sm:flex-row gap-3 w-full", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: compact ? "nl-email-c" : "nl-email", className: "sr-only", children: "Tu correo electrónico" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "input",
-      {
-        id: compact ? "nl-email-c" : "nl-email",
-        type: "email",
-        required: true,
-        value: email,
-        onChange: (e) => setEmail(e.target.value),
-        placeholder: "tu@correo.com",
-        className: "flex-1 rounded-full bg-white/95 border border-white/40 px-5 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-white/60"
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
-      {
-        type: "submit",
-        disabled: loading,
-        className: "rounded-full bg-ink text-white px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors disabled:opacity-60 whitespace-nowrap",
-        children: loading ? "Enviando…" : "Suscribirme"
-      }
-    )
-  ] });
-  if (compact) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "my-14 rounded-2xl bg-brand-teal text-white p-7 md:p-9", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-2xl mb-1", children: "Análisis Quincenal" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white/85 text-sm leading-relaxed mb-5", children: "Cada dos semanas, una reflexión en tu correo. Sin ruido." }),
-      form
-    ] });
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-brand-teal text-white", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-5xl mx-auto px-6 py-16 md:py-20 text-center", children: [
+  const content = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-4 w-4" }),
       " Newsletter"
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-3xl md:text-4xl mt-4 mb-3", children: "Muy pronto podrás unirte a mi comunidad de lectores" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white/85 max-w-xl mx-auto leading-relaxed mb-8", children: "Ideas, reflexiones y frases que invitan a pensa" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-xl mx-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "button",
       {
         type: "button",
@@ -1213,8 +1162,12 @@ function NewsletterBlock({ compact = false }) {
           "Próximamente"
         ]
       }
-    ) })
-  ] }) });
+    )
+  ] });
+  if (compact) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "my-14 rounded-2xl bg-brand-teal text-white px-6 py-14 text-center", children: content });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-brand-teal text-white", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-5xl mx-auto px-6 py-16 md:py-20 text-center", children: content }) });
 }
 const frasesSocial = {
   instagram: "https://www.instagram.com/poderdelafrases/",
