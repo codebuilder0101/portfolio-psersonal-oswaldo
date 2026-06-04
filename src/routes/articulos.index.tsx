@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articles, categories, formatDate, type Category } from "@/lib/articles";
-import heroBg from "@/assets/image-background.png";
+import heroBg from "@/assets/image-background.jpeg";
 
 export const Route = createFileRoute("/articulos/")({
   validateSearch: (search: Record<string, unknown>): { categoria?: Category } => {
@@ -47,16 +47,19 @@ function ArticulosPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section
-          className="relative bg-ink bg-cover bg-center text-white"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        >
-          <div className="absolute inset-0 bg-ink/75" />
-          <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
-            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-white">
+        <section className="relative text-white">
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden="true"
+            className="block w-full h-auto"
+          />
+          <div className="absolute inset-0 bg-ink/45" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-white drop-shadow-md">
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>
-            <p className="mt-6 text-sm text-white/60">www.oswaldosmarrelli.com</p>
+            <p className="mt-6 text-sm text-white/70 drop-shadow">www.oswaldosmarrelli.com</p>
           </div>
         </section>
 

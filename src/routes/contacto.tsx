@@ -62,7 +62,7 @@ function ContactoPage() {
                 {site.email}
               </a>
               <p className="text-sm text-white/85 mb-4">Sígueme</p>
-              <SocialLinks only={["Facebook", "Instagram", "X / Twitter"]} tone="brand" />
+              <SocialLinks only={["Facebook", "Instagram", "LinkedIn", "X / Twitter"]} tone="brand" />
             </div>
           </div>
         </div>

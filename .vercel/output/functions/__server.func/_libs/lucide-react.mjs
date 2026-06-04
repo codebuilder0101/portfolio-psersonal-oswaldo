@@ -75,18 +75,20 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$b = [
+const __iconNode$c = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$b);
-const __iconNode$a = [
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$c);
+const __iconNode$b = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$a);
-const __iconNode$9 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$9);
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$b);
+const __iconNode$a = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$a);
+const __iconNode$9 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$9);
 const __iconNode$8 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
 const ChevronLeft = createLucideIcon("chevron-left", __iconNode$8);
 const __iconNode$7 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
@@ -147,8 +149,9 @@ export {
   Mail as M,
   X,
   ArrowRight as a,
-  ChevronLeft as b,
-  ChevronRight as c,
-  Linkedin as d,
-  Menu as e
+  ChevronDown as b,
+  ChevronLeft as c,
+  ChevronRight as d,
+  Linkedin as e,
+  Menu as f
 };
