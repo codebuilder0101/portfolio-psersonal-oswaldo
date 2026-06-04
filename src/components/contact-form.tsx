@@ -1,13 +1,28 @@
 import { useState, type ComponentType } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Phone, User } from "lucide-react";
 import { submitLead } from "@/lib/forms";
 
-const schema = z.object({
-  nombre: z.string().trim().min(2, "Tu nombre, por favor").max(100),
-  mensaje: z.string().trim().min(10, "Cuéntame un poco más").max(2000),
-});
+const phoneRe = /^[+\d][\d\s().-]{5,}$/;
+
+const schema = z
+  .object({
+    nombre: z.string().trim().min(2, "Tu nombre, por favor").max(100),
+    correo: z.union([
+      z.string().trim().email("Correo electrónico no válido").max(160),
+      z.literal(""),
+    ]),
+    telefono: z.union([
+      z.string().trim().regex(phoneRe, "Número de móvil no válido").max(40),
+      z.literal(""),
+    ]),
+    mensaje: z.string().trim().min(10, "Cuéntame un poco más").max(2000),
+  })
+  .refine((d) => d.correo !== "" || d.telefono !== "", {
+    message: "Déjame al menos un correo o un número móvil para poder responderte.",
+    path: ["contacto"],
+  });
 
 type Tone = "light" | "dark";
 
@@ -18,7 +33,7 @@ export function ContactForm({
   tone?: Tone;
   buttonClassName?: string;
 }) {
-  const [form, setForm] = useState({ nombre: "", mensaje: "" });
+  const [form, setForm] = useState({ nombre: "", correo: "", telefono: "", mensaje: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
@@ -36,9 +51,14 @@ export function ContactForm({
     setErrors({});
     setSubmitting(true);
     try {
-      await submitLead("Contacto", { nombre: form.nombre, mensaje: form.mensaje });
+      await submitLead("Contacto", {
+        nombre: form.nombre,
+        correo: form.correo,
+        telefono: form.telefono,
+        mensaje: form.mensaje,
+      });
       toast.success("Mensaje enviado. Te respondo pronto.");
-      setForm({ nombre: "", mensaje: "" });
+      setForm({ nombre: "", correo: "", telefono: "", mensaje: "" });
     } catch {
       toast.error("No se pudo enviar el mensaje. Inténtalo de nuevo.");
     } finally {
@@ -49,35 +69,85 @@ export function ContactForm({
   const light = tone === "light";
   const labelCls = light ? "text-foreground font-medium" : "text-white";
   const fieldCls = light
-    ? "w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 transition"
-    : "w-full bg-transparent border border-white/50 rounded-sm px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors";
+    ? "w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 transition"
+    : "w-full bg-transparent border border-white/40 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition";
+  const iconCls = light ? "text-muted-foreground" : "text-white/50";
   const helperCls = light ? "text-muted-foreground" : "text-white/70";
-  const errCls = light ? "text-brand-teal" : "text-white/90";
+  const errCls = light ? "text-brand-terracotta" : "text-white/90";
   const btnCls = buttonClassName ?? "bg-brand-teal text-white hover:bg-brand-teal/90";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
-      <div className="space-y-2">
+      {/* Nombre */}
+      <div className="space-y-1.5">
         <label htmlFor="nombre" className={`block text-sm ${labelCls}`}>
           Nombre*
         </label>
-        <input
-          id="nombre"
-          type="text"
-          value={form.nombre}
-          onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-          className={fieldCls}
-        />
+        <div className="relative">
+          <User className={`pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 ${iconCls}`} />
+          <input
+            id="nombre"
+            type="text"
+            autoComplete="name"
+            value={form.nombre}
+            onChange={(e) => setForm({ ...form, nombre: e.target.value })}
+            className={`${fieldCls} pl-10`}
+          />
+        </div>
         {errors.nombre && <p className={`text-sm ${errCls}`}>{errors.nombre}</p>}
       </div>
 
-      <div className="space-y-2">
+      {/* Correo + Móvil — al menos uno */}
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div className="space-y-1.5">
+          <label htmlFor="correo" className={`block text-sm ${labelCls}`}>
+            Correo electrónico
+          </label>
+          <div className="relative">
+            <Mail className={`pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 ${iconCls}`} />
+            <input
+              id="correo"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              placeholder="tu@correo.com"
+              value={form.correo}
+              onChange={(e) => setForm({ ...form, correo: e.target.value })}
+              className={`${fieldCls} pl-10`}
+            />
+          </div>
+          {errors.correo && <p className={`text-sm ${errCls}`}>{errors.correo}</p>}
+        </div>
+
+        <div className="space-y-1.5">
+          <label htmlFor="telefono" className={`block text-sm ${labelCls}`}>
+            Móvil / WhatsApp
+          </label>
+          <div className="relative">
+            <Phone className={`pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 ${iconCls}`} />
+            <input
+              id="telefono"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="+55 ..."
+              value={form.telefono}
+              onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+              className={`${fieldCls} pl-10`}
+            />
+          </div>
+          {errors.telefono && <p className={`text-sm ${errCls}`}>{errors.telefono}</p>}
+        </div>
+      </div>
+
+      {/* Mensaje */}
+      <div className="space-y-1.5">
         <label htmlFor="mensaje" className={`block text-sm ${labelCls}`}>
           Mensaje
         </label>
         <textarea
           id="mensaje"
-          rows={6}
+          rows={5}
           value={form.mensaje}
           onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
           className={`${fieldCls} resize-none`}
@@ -85,12 +155,17 @@ export function ContactForm({
         {errors.mensaje && <p className={`text-sm ${errCls}`}>{errors.mensaje}</p>}
       </div>
 
-      <p className={`text-xs ${helperCls}`}>* Indica los campos obligatorios</p>
+      <p className={`text-xs ${helperCls}`}>
+        * Campos obligatorios. Déjame al menos un{" "}
+        <span className="font-semibold">correo</span> o un{" "}
+        <span className="font-semibold">número móvil</span> para poder responderte.
+      </p>
+      {errors.contacto && <p className={`text-sm ${errCls}`}>{errors.contacto}</p>}
 
       <button
         type="submit"
         disabled={submitting}
-        className={`w-full py-3.5 text-sm font-medium tracking-wide rounded-lg transition-colors disabled:opacity-60 ${btnCls}`}
+        className={`w-full py-3.5 text-sm font-semibold tracking-wide rounded-xl transition-colors disabled:opacity-60 ${btnCls}`}
       >
         {submitting ? "ENVIANDO..." : "ENVIAR"}
       </button>

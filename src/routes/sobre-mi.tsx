@@ -51,7 +51,7 @@ function SobreMi() {
                   to="/articulos"
                   className="group inline-flex items-center gap-2 rounded-full bg-white text-brand-blue px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-cream hover:text-brand-blue transition-colors"
                 >
-                  ESCRÍBEME
+                  Leer más
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>

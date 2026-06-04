@@ -3561,14 +3561,17 @@ const stringType = ZodString.create;
 ZodNever.create;
 ZodArray.create;
 const objectType = ZodObject.create;
-ZodUnion.create;
+const unionType = ZodUnion.create;
 ZodIntersection.create;
 ZodTuple.create;
+const literalType = ZodLiteral.create;
 ZodEnum.create;
 ZodPromise.create;
 ZodOptional.create;
 ZodNullable.create;
 export {
+  literalType as l,
   objectType as o,
-  stringType as s
+  stringType as s,
+  unionType as u
 };

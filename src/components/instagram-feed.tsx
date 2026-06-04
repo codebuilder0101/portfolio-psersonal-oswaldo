@@ -44,13 +44,13 @@ export function InstagramFeed() {
               <Instagram className="h-8 w-8" />
             </span>
             <h3 className="font-display text-2xl text-foreground mb-2">
-              Muy pronto podrás unirte a mi comunidad de lectores
+              Sigue el diario visual en Instagram
             </h3>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Ideas, reflexiones y frases que invitan a pensar
+              Frases, ideas y reflexiones en @elpoderdelasfrases
             </p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-teal">
-              Próximamente
+              Ver perfil
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </a>

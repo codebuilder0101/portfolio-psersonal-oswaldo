@@ -46,7 +46,7 @@ function ContactoPage() {
           </div>
 
           {/* Modern contact card */}
-          <div className="grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10">
+          <div className="grid md:grid-cols-[7fr_3fr] rounded-3xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10">
             {/* Form */}
             <div className="bg-card p-8 md:p-10 lg:p-12">
               <ContactForm tone="light" />
@@ -56,9 +56,9 @@ function ContactoPage() {
               <p className="text-sm text-white/85 mb-2">Correo electrónico:</p>
               <a
                 href={`mailto:${site.email}`}
-                className="inline-flex items-center gap-2 text-lg font-medium hover:underline underline-offset-4 mb-8 break-all"
+                className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline underline-offset-4 mb-8 whitespace-nowrap"
               >
-                <Mail className="h-5 w-5 shrink-0" />
+                <Mail className="h-4 w-4 shrink-0" />
                 {site.email}
               </a>
               <p className="text-sm text-white/85 mb-4">Sígueme</p>

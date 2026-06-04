@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Mail } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 import { submitLead } from "@/lib/forms";
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -75,13 +75,22 @@ export function NewsletterBlock({ compact = false }: { compact?: boolean }) {
           <Mail className="h-4 w-4" /> Newsletter
         </span>
         <h2 className="font-display font-bold text-3xl md:text-4xl mt-4 mb-3">
-          Análisis Quincenal
+           Muy pronto podrás unirte a mi comunidad de lectores
         </h2>
         <p className="text-white/85 max-w-xl mx-auto leading-relaxed mb-8">
-          Cada dos semanas, una reflexión profunda sobre los temas que definen nuestra época.
-          Únete a la comunidad de lectores.
+          Ideas, reflexiones y frases que invitan a pensa
         </p>
-        <div className="max-w-xl mx-auto">{form}</div>
+        <div className="max-w-xl mx-auto">
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="inline-flex items-center gap-2 rounded-full bg-white/15 text-white px-8 py-3.5 text-sm font-semibold tracking-wide cursor-not-allowed select-none"
+          >
+            <Clock className="h-4 w-4" />
+            Próximamente
+          </button>
+        </div>
       </div>
     </section>
   );
