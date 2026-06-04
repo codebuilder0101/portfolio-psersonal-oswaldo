@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { to: "/", label: "Inicio" },
   { to: "/articulos", label: "Mis artículos" },
-  { to: "/frases", label: "El poder de las frases" },
   { to: "/sobre-mi", label: "Sobre mí" },
   { to: "/contacto", label: "Contacto" },
 ] as const;

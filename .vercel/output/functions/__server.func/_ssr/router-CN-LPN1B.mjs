@@ -4,7 +4,7 @@ import { b as createRouter, a as createRootRouteWithContext, u as useRouter, L a
 import { H as notFound } from "../_libs/tanstack__router-core.mjs";
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { T as Toaster$1, t as toast } from "../_libs/sonner.mjs";
-import { a as ArrowRight, I as Instagram, M as Mail, A as ArrowLeft, X, g as Menu, b as ChevronDown, c as ChevronLeft, d as ChevronRight, U as User, P as Phone, F as Facebook, f as Linkedin, e as Clock, C as Check, L as Link2 } from "../_libs/lucide-react.mjs";
+import { a as ArrowRight, M as Mail, A as ArrowLeft, I as Instagram, X, g as Menu, b as ChevronDown, c as ChevronLeft, d as ChevronRight, U as User, P as Phone, F as Facebook, f as Linkedin, e as Clock, C as Check, L as Link2 } from "../_libs/lucide-react.mjs";
 import { o as objectType, s as stringType, u as unionType, l as literalType } from "../_libs/zod.mjs";
 import "../_libs/react-dom.mjs";
 import "util";
@@ -18,7 +18,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-BKN3TxoP.css";
+const appCss = "/assets/styles-CWrQcMBe.css";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Toaster$1,
@@ -70,7 +70,7 @@ function ErrorComponent({ error, reset }) {
     )
   ] }) });
 }
-const Route$8 = createRootRouteWithContext()({
+const Route$7 = createRootRouteWithContext()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -122,7 +122,7 @@ function RootShell({ children }) {
   ] });
 }
 function RootComponent() {
-  const { queryClient } = Route$8.useRouteContext();
+  const { queryClient } = Route$7.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(QueryClientProvider, { client: queryClient, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
@@ -131,7 +131,6 @@ function RootComponent() {
 const navItems = [
   { to: "/", label: "Inicio" },
   { to: "/articulos", label: "Mis artículos" },
-  { to: "/frases", label: "El poder de las frases" },
   { to: "/sobre-mi", label: "Sobre mí" },
   { to: "/contacto", label: "Contacto" }
 ];
@@ -405,7 +404,7 @@ const modules = /* @__PURE__ */ Object.assign({
 const numbered = Object.entries(modules).filter(([path]) => /\/\d{2}\.(jpe?g|png|webp)$/i.test(path)).sort(([a], [b]) => a.localeCompare(b)).map(([, url]) => url);
 const galleryImages = [...numbered, imageNew];
 const portrait$1 = "/assets/photo-2-Dw3AJwQr.jpeg";
-const Route$7 = createFileRoute("/sobre-mi")({
+const Route$6 = createFileRoute("/sobre-mi")({
   head: () => ({
     meta: [
       { title: "Sobre mí — Oswaldo Smarrelli" },
@@ -828,7 +827,7 @@ function getRelated(slug, n = 3) {
   return articles.filter((a) => a.slug !== slug && a.category === current.category).slice(0, n).concat(articles.filter((a) => a.slug !== slug && a.category !== current.category).slice(0, n)).slice(0, n);
 }
 const BASE_URL = "";
-const Route$6 = createFileRoute("/sitemap.xml")({
+const Route$5 = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
@@ -870,112 +869,9 @@ const Route$6 = createFileRoute("/sitemap.xml")({
     }
   }
 });
-const frases = [
-  "Las ideas pueden cambiar realidades.",
-  "No escribo para gustar, escribo para ordenar lo que pienso.",
-  "La reputación no se presume: se comunica, se construye y se proyecta.",
-  "El talento sin visibilidad es como un faro apagado: está ahí, pero no guía a nadie.",
-  "Las palabras nos conectan; las ideas nos unen.",
-  "En tiempos de cambio, quien cree saberlo todo está listo para un mundo que ya no existe."
-];
-const frasesSocial = {
-  instagram: "https://www.instagram.com/poderdelafrases/",
-  tiktok: "https://www.tiktok.com/@elpoderdelasfrases"
-};
-const Route$5 = createFileRoute("/frases")({
-  head: () => ({
-    meta: [
-      { title: "El Poder de las Frases — Oswaldo Smarrelli" },
-      {
-        name: "description",
-        content: "El Poder de las Frases es un proyecto personal nacido para elevar el valor de las palabras bien dichas."
-      },
-      { property: "og:title", content: "El Poder de las Frases" },
-      {
-        property: "og:description",
-        content: "Creo en las frases que se quedan, que motivan, despiertan ideas y dan sentido."
-      },
-      { property: "og:url", content: "/frases" }
-    ],
-    links: [{ rel: "canonical", href: "/frases" }]
-  }),
-  component: FrasesPage
-});
-function TikTokIcon({ className }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", fill: "currentColor", className, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M16.5 0h-3v15.5a3 3 0 1 1-3-3c.2 0 .4 0 .6.05v-3.1a6 6 0 1 0 5.4 6V8.4a7.4 7.4 0 0 0 4.5 1.5V6.8a4.4 4.4 0 0 1-4.5-4.3V0z" }) });
-}
-function FrasesPage() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-cream", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto px-6 pt-20 md:pt-28 pb-14 md:pb-20 text-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block h-1 w-12 rounded-full bg-brand-terracotta mx-auto mb-7" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-4xl md:text-6xl leading-[1.05] text-foreground tracking-tight text-balance", children: "El Poder de las Frases" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-lg md:text-xl leading-relaxed text-foreground/85 text-balance", children: "El Poder de las Frases es un proyecto personal nacido para elevar el valor de las palabras bien dichas. Creo en las frases que se quedan, que motivan una decisión, despiertan una idea, ponen orden y dan sentido a lo que vivimos: la vida, la sociedad, el liderazgo, la libertad y las emociones." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-brand-terracotta", children: "Puedes seguir este proyecto en Instagram y TikTok" })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted border-y border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6 py-16 md:py-24", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-2xl md:text-3xl text-foreground text-center mb-10 md:mb-12", children: "Frases que se quedan" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8", children: frases.map((frase, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "figure",
-          {
-            className: "rounded-2xl bg-card border border-border shadow-sm p-8 flex flex-col",
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "span",
-                {
-                  className: "font-display text-5xl leading-none text-brand-terracotta mb-3",
-                  "aria-hidden": "true",
-                  children: "“"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("blockquote", { className: "font-display text-xl leading-snug text-foreground text-balance", children: frase })
-            ]
-          },
-          i
-        )) })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto px-6 py-20 md:py-28 text-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto mb-8 flex h-28 w-28 items-center justify-center rounded-full bg-brand-teal text-white shadow-lg shadow-black/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-[11px] leading-tight tracking-wide px-4", children: "EL PODER DE LAS FRASES" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-2xl md:text-3xl text-foreground mb-3", children: "Sígueme en redes" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-8 max-w-md mx-auto", children: "Nuevas frases cada semana en Instagram y TikTok." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center justify-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "a",
-            {
-              href: frasesSocial.instagram,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "inline-flex items-center gap-2 rounded-full bg-brand-teal text-white px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal/90 transition-colors",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { className: "h-5 w-5" }),
-                " Instagram"
-              ]
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "a",
-            {
-              href: frasesSocial.tiktok,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "inline-flex items-center gap-2 rounded-full border border-brand-teal text-brand-teal px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal hover:text-white transition-colors",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(TikTokIcon, { className: "h-5 w-5" }),
-                " TikTok"
-              ]
-            }
-          )
-        ] })
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
-  ] });
-}
 const site = {
   /** Author contact email — used for the contact form, newsletter and "Escríbeme". TODO: confirm the real address. */
-  email: "hola@oswaldosmarrelli.com",
-  instagramUrl: "https://www.instagram.com/elpoderdelasfrases"
+  email: "hola@oswaldosmarrelli.com"
 };
 async function submitLead(kind, data) {
   if (typeof window === "undefined") return;
@@ -1246,45 +1142,6 @@ const Route$3 = createFileRoute("/articulos")({
 function ArticulosLayout() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
 }
-function InstagramFeed() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6 py-16 md:py-24", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-end justify-between gap-4 mb-10", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold uppercase tracking-[0.2em] text-brand-terracotta", children: "Instagram" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "a",
-        {
-          href: site.instagramUrl,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          className: "inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:text-brand-teal/75 transition-colors",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { className: "h-4 w-4" }),
-            " Seguir"
-          ]
-        }
-      )
-    ] }),
-    // Honest fallback until the widget embed is configured
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "a",
-      {
-        href: site.instagramUrl,
-        target: "_blank",
-        rel: "noopener noreferrer",
-        className: "group block rounded-2xl border border-border bg-card shadow-sm hover:shadow-lg transition-all p-10 md:p-14 text-center",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand-teal/10 text-brand-teal mb-5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { className: "h-8 w-8" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-2xl text-foreground mb-2", children: "Sigue el diario visual en Instagram" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-md mx-auto", children: "Frases, ideas y reflexiones en @elpoderdelasfrases" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-teal", children: [
-            "Ver perfil",
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 transition-transform group-hover:translate-x-1" })
-          ] })
-        ]
-      }
-    )
-  ] }) });
-}
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 function NewsletterBlock({ compact = false }) {
   const [email, setEmail] = reactExports.useState("");
@@ -1359,6 +1216,10 @@ function NewsletterBlock({ compact = false }) {
     ) })
   ] }) });
 }
+const frasesSocial = {
+  instagram: "https://www.instagram.com/poderdelafrases/",
+  tiktok: "https://www.tiktok.com/@elpoderdelasfrases"
+};
 const portrait = "/assets/oswaldo-portrait-Cn0On1Qk.jpeg";
 const Route$2 = createFileRoute("/")({
   head: () => ({
@@ -1394,6 +1255,9 @@ const columns = [
     body: "Tú participación es valiosa: cuantas más voces se sumen al diálogo, más posibilidades tendremos de construir ideas con impacto. Explora, céntrate en los temas que más te interesen y comparte aquello que resuene contigo."
   }
 ];
+function TikTokIcon({ className }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", fill: "currentColor", className, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M16.5 0h-3v15.5a3 3 0 1 1-3-3c.2 0 .4 0 .6.05v-3.1a6 6 0 1 0 5.4 6V8.4a7.4 7.4 0 0 0 4.5 1.5V6.8a4.4 4.4 0 0 1-4.5-4.3V0z" }) });
+}
 function HomePage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-cream", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteHeader, {}),
@@ -1417,7 +1281,7 @@ function HomePage() {
               to: "/articulos",
               className: "group mt-8 inline-flex items-center gap-2 rounded-full bg-white text-brand-blue px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-cream hover:text-brand-blue transition-colors",
               children: [
-                "Leer más",
+                "Mis articulos",
                 /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-4 w-4 transition-transform group-hover:translate-x-1" })
               ]
             }
@@ -1436,7 +1300,44 @@ function HomePage() {
         },
         c.title
       )) }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(InstagramFeed, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "frases", className: "bg-cream", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto px-6 py-20 md:py-28 text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block h-1 w-12 rounded-full bg-brand-terracotta mx-auto mb-7" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-bold text-4xl md:text-5xl leading-[1.05] text-foreground tracking-tight text-balance", children: "El Poder de las Frases" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-lg md:text-xl leading-relaxed text-foreground/85 text-balance", children: "El Poder de las Frases es un proyecto personal nacido para elevar el valor de las palabras bien dichas. Creo en las frases que se quedan, que motivan una decisión, despiertan una idea, ponen orden y dan sentido a lo que vivimos: la vida, la sociedad, el liderazgo, la libertad y las emociones." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-brand-terracotta", children: "Puedes seguir este proyecto en Instagram y TikTok" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-12 flex flex-col items-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-2xl md:text-3xl text-foreground mb-2", children: "Sígueme en redes" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6 max-w-md mx-auto", children: "Nuevas frases cada semana en Instagram y TikTok." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center justify-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: frasesSocial.instagram,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "inline-flex items-center gap-2 rounded-full bg-brand-teal text-white px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal/90 transition-colors",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { className: "h-5 w-5" }),
+                  " Instagram"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: frasesSocial.tiktok,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "inline-flex items-center gap-2 rounded-full border border-brand-teal text-brand-teal px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal hover:text-white transition-colors",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(TikTokIcon, { className: "h-5 w-5" }),
+                  " TikTok"
+                ]
+              }
+            )
+          ] })
+        ] })
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(NewsletterBlock, {})
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
@@ -1488,7 +1389,7 @@ function ArticulosPage() {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-ink/45" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 flex flex-col items-center justify-center text-center px-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-50 md:pb-40", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-white drop-shadow-md", children: "OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm text-white/70 drop-shadow", children: "www.oswaldosmarrelli.com" })
         ] })
@@ -1747,35 +1648,30 @@ function ArticlePage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(SiteFooter, {})
   ] });
 }
-const SobreMiRoute = Route$7.update({
+const SobreMiRoute = Route$6.update({
   id: "/sobre-mi",
   path: "/sobre-mi",
-  getParentRoute: () => Route$8
+  getParentRoute: () => Route$7
 });
-const SitemapDotxmlRoute = Route$6.update({
+const SitemapDotxmlRoute = Route$5.update({
   id: "/sitemap.xml",
   path: "/sitemap.xml",
-  getParentRoute: () => Route$8
-});
-const FrasesRoute = Route$5.update({
-  id: "/frases",
-  path: "/frases",
-  getParentRoute: () => Route$8
+  getParentRoute: () => Route$7
 });
 const ContactoRoute = Route$4.update({
   id: "/contacto",
   path: "/contacto",
-  getParentRoute: () => Route$8
+  getParentRoute: () => Route$7
 });
 const ArticulosRoute = Route$3.update({
   id: "/articulos",
   path: "/articulos",
-  getParentRoute: () => Route$8
+  getParentRoute: () => Route$7
 });
 const IndexRoute = Route$2.update({
   id: "/",
   path: "/",
-  getParentRoute: () => Route$8
+  getParentRoute: () => Route$7
 });
 const ArticulosIndexRoute = Route$1.update({
   id: "/",
@@ -1798,11 +1694,10 @@ const rootRouteChildren = {
   IndexRoute,
   ArticulosRoute: ArticulosRouteWithChildren,
   ContactoRoute,
-  FrasesRoute,
   SitemapDotxmlRoute,
   SobreMiRoute
 };
-const routeTree = Route$8._addFileChildren(rootRouteChildren)._addFileTypes();
+const routeTree = Route$7._addFileChildren(rootRouteChildren)._addFileTypes();
 const getRouter = () => {
   const queryClient = new QueryClient();
   const router = createRouter({

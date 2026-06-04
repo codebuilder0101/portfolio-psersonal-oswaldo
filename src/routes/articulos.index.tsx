@@ -55,7 +55,7 @@ function ArticulosPage() {
             className="block w-full h-auto"
           />
           <div className="absolute inset-0 bg-ink/45" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-50 md:pb-40">
             <h1 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl mx-auto text-white drop-shadow-md">
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>

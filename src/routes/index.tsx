@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { InstagramFeed } from "@/components/instagram-feed";
 import { NewsletterBlock } from "@/components/newsletter-block";
+import { frasesSocial } from "@/lib/frases";
 // TODO: replace with the provided home hero photo (sitting portrait).
 import portrait from "@/assets/oswaldo-portrait.jpeg";
 
@@ -45,6 +45,15 @@ const columns = [
   },
 ];
 
+// Logo de TikTok (lucide no incluye marca TikTok).
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.5 0h-3v15.5a3 3 0 1 1-3-3c.2 0 .4 0 .6.05v-3.1a6 6 0 1 0 5.4 6V8.4a7.4 7.4 0 0 0 4.5 1.5V6.8a4.4 4.4 0 0 1-4.5-4.3V0z" />
+    </svg>
+  );
+}
+
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
@@ -76,7 +85,7 @@ function HomePage() {
                   to="/articulos"
                   className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white text-brand-blue px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-cream hover:text-brand-blue transition-colors"
                 >
-                  Leer más
+                  Mis articulos
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -106,8 +115,52 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Instagram feed */}
-        <InstagramFeed />
+        {/* El Poder de las Frases */}
+        <section id="frases" className="bg-cream">
+          <div className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
+            <span className="block h-1 w-12 rounded-full bg-brand-terracotta mx-auto mb-7" />
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-[1.05] text-foreground tracking-tight text-balance">
+              El Poder de las Frases
+            </h2>
+            <p className="mt-8 text-lg md:text-xl leading-relaxed text-foreground/85 text-balance">
+              El Poder de las Frases es un proyecto personal nacido para elevar el valor de las
+              palabras bien dichas. Creo en las frases que se quedan, que motivan una decisión,
+              despiertan una idea, ponen orden y dan sentido a lo que vivimos: la vida, la
+              sociedad, el liderazgo, la libertad y las emociones.
+            </p>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-brand-terracotta">
+              Puedes seguir este proyecto en Instagram y TikTok
+            </p>
+
+            <div className="mt-12 flex flex-col items-center">
+              
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-2">
+                Sígueme en redes
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                Nuevas frases cada semana en Instagram y TikTok.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href={frasesSocial.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-white px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal/90 transition-colors"
+                >
+                  <Instagram className="h-5 w-5" /> Instagram
+                </a>
+                <a
+                  href={frasesSocial.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-brand-teal text-brand-teal px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-teal hover:text-white transition-colors"
+                >
+                  <TikTokIcon className="h-5 w-5" /> TikTok
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Newsletter — comunidad */}
         <NewsletterBlock />

@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as FrasesRouteImport } from './routes/frases'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ArticulosRouteImport } from './routes/articulos'
 import { Route as IndexRouteImport } from './routes/index'
@@ -26,11 +25,6 @@ const SobreMiRoute = SobreMiRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FrasesRoute = FrasesRouteImport.update({
-  id: '/frases',
-  path: '/frases',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -63,7 +57,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
-  '/frases': typeof FrasesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
@@ -72,7 +65,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
-  '/frases': typeof FrasesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
@@ -83,7 +75,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
-  '/frases': typeof FrasesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
@@ -95,7 +86,6 @@ export interface FileRouteTypes {
     | '/'
     | '/articulos'
     | '/contacto'
-    | '/frases'
     | '/sitemap.xml'
     | '/sobre-mi'
     | '/articulos/$slug'
@@ -104,7 +94,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contacto'
-    | '/frases'
     | '/sitemap.xml'
     | '/sobre-mi'
     | '/articulos/$slug'
@@ -114,7 +103,6 @@ export interface FileRouteTypes {
     | '/'
     | '/articulos'
     | '/contacto'
-    | '/frases'
     | '/sitemap.xml'
     | '/sobre-mi'
     | '/articulos/$slug'
@@ -125,7 +113,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArticulosRoute: typeof ArticulosRouteWithChildren
   ContactoRoute: typeof ContactoRoute
-  FrasesRoute: typeof FrasesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreMiRoute: typeof SobreMiRoute
 }
@@ -144,13 +131,6 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/frases': {
-      id: '/frases'
-      path: '/frases'
-      fullPath: '/frases'
-      preLoaderRoute: typeof FrasesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -209,7 +189,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArticulosRoute: ArticulosRouteWithChildren,
   ContactoRoute: ContactoRoute,
-  FrasesRoute: FrasesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreMiRoute: SobreMiRoute,
 }
