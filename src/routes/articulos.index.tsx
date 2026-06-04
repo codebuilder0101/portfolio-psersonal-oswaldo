@@ -42,6 +42,8 @@ function ArticulosPage() {
     })),
   ];
 
+  const recientes = articles.slice(0, 4);
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <SiteHeader />
@@ -60,6 +62,38 @@ function ArticulosPage() {
               OPINIÓN CON SENTIDO, PALABRAS QUE NACEN DE LA REFLEXIÓN Y EL COMPROMISO
             </h1>
             <p className="mt-6 text-sm text-white/70 drop-shadow">www.oswaldosmarrelli.com</p>
+          </div>
+        </section>
+
+        {/* Artículos recientes */}
+        <section className="bg-muted border-b border-border">
+          <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-8 md:mb-10">
+              Artículos recientes
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+              {recientes.map((a) => (
+                <Link
+                  key={a.slug}
+                  to="/articulos/$slug"
+                  params={{ slug: a.slug }}
+                  className="group flex flex-col bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="self-start text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-terracotta bg-brand-terracotta/10 px-2.5 py-1 rounded-full mb-4">
+                    {a.category}
+                  </span>
+                  <h3 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-brand-teal">
+                    {a.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">
+                    {a.excerpt}
+                  </p>
+                  <div className="mt-4 pt-3 border-t border-border text-xs text-muted-foreground">
+                    {formatDate(a.date)} · {a.readingTime} min
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
