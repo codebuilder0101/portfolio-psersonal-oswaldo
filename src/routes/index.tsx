@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { InstagramFeed } from "@/components/instagram-feed";
@@ -71,6 +72,13 @@ function HomePage() {
                   ordenar lo que pienso y compartirlos es acercarme a quienes como yo siguen
                   creyendo que las ideas pueden cambiar realidades.
                 </p>
+                <Link
+                  to="/articulos"
+                  className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white text-brand-blue px-8 py-3.5 text-sm font-semibold tracking-wide shadow-lg shadow-black/20 hover:bg-cream hover:text-brand-blue transition-colors"
+                >
+                  Leer más
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
           </div>
