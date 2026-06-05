@@ -2,16 +2,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { articles, categories, formatDate, type Category } from "@/lib/articles";
+import { formatDate } from "@/lib/articles";
+import { fetchArticles, fetchCategories } from "@/lib/api/content.functions";
 import heroBg from "@/assets/image-background.jpeg";
 
 export const Route = createFileRoute("/articulos/")({
-  validateSearch: (search: Record<string, unknown>): { categoria?: Category } => {
+  validateSearch: (search: Record<string, unknown>): { categoria?: string } => {
     const c = search.categoria;
-    return typeof c === "string" && (categories as readonly string[]).includes(c)
-      ? { categoria: c as Category }
-      : {};
+    return typeof c === "string" && c ? { categoria: c } : {};
   },
+  loader: async () => ({
+    articles: await fetchArticles(),
+    categories: await fetchCategories(),
+  }),
   head: () => ({
     meta: [
       { title: "Mis artículos — Oswaldo Smarrelli" },
@@ -31,14 +34,15 @@ export const Route = createFileRoute("/articulos/")({
 
 function ArticulosPage() {
   const { categoria } = Route.useSearch();
+  const { articles, categories } = Route.useLoaderData();
   const filtered = categoria ? articles.filter((a) => a.category === categoria) : articles;
 
-  const tabs: { label: string; value?: Category; count: number }[] = [
+  const tabs: { label: string; value?: string; count: number }[] = [
     { label: "Todos", value: undefined, count: articles.length },
     ...categories.map((c) => ({
-      label: c,
-      value: c,
-      count: articles.filter((a) => a.category === c).length,
+      label: c.name,
+      value: c.name,
+      count: articles.filter((a) => a.category === c.name).length,
     })),
   ];
 

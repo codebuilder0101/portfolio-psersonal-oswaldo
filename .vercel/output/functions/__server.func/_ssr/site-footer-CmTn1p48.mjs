@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { X, g as Menu } from "../_libs/lucide-react.mjs";
+import { X, n as Menu } from "../_libs/lucide-react.mjs";
 const navItems = [
   { to: "/", label: "Inicio" },
   { to: "/articulos", label: "Mis artículos" },

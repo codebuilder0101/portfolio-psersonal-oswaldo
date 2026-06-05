@@ -1,1 +1,0 @@
-import{j as e}from"./index-DIyXjwXa.js";const o=({error:r})=>e.jsx("div",{className:"min-h-screen grid place-items-center p-6",children:e.jsxs("p",{className:"text-muted-foreground",children:["No pudimos cargar este artículo: ",r.message]})});export{o as errorComponent};

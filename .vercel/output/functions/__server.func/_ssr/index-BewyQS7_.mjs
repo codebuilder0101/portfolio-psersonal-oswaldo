@@ -2,7 +2,7 @@ import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { a as SiteHeader, S as SiteFooter } from "./site-footer-CmTn1p48.mjs";
 import { p as portrait, N as NewsletterBlock } from "./oswaldo-portrait-3o1rNaiM.mjs";
-import { a as ArrowRight, I as Instagram } from "../_libs/lucide-react.mjs";
+import { a as ArrowRight, i as Instagram } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

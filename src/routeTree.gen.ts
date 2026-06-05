@@ -13,9 +13,14 @@ import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ArticulosRouteImport } from './routes/articulos'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as UploadsSplatRouteImport } from './routes/uploads.$'
 import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
+import { Route as AdminCategoriasRouteImport } from './routes/admin.categorias'
+import { Route as AdminArticulosIdRouteImport } from './routes/admin.articulos.$id'
 
 const SobreMiRoute = SobreMiRouteImport.update({
   id: '/sobre-mi',
@@ -37,6 +42,11 @@ const ArticulosRoute = ArticulosRouteImport.update({
   path: '/articulos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -47,74 +57,124 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ArticulosRoute,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const UploadsSplatRoute = UploadsSplatRouteImport.update({
+  id: '/uploads/$',
+  path: '/uploads/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArticulosSlugRoute = ArticulosSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ArticulosRoute,
 } as any)
+const AdminCategoriasRoute = AdminCategoriasRouteImport.update({
+  id: '/categorias',
+  path: '/categorias',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminArticulosIdRoute = AdminArticulosIdRouteImport.update({
+  id: '/articulos/$id',
+  path: '/articulos/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
+  '/uploads/$': typeof UploadsSplatRoute
+  '/admin/': typeof AdminIndexRoute
   '/articulos/': typeof ArticulosIndexRoute
+  '/admin/articulos/$id': typeof AdminArticulosIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
+  '/uploads/$': typeof UploadsSplatRoute
+  '/admin': typeof AdminIndexRoute
   '/articulos': typeof ArticulosIndexRoute
+  '/admin/articulos/$id': typeof AdminArticulosIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre-mi': typeof SobreMiRoute
+  '/admin/categorias': typeof AdminCategoriasRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
+  '/uploads/$': typeof UploadsSplatRoute
+  '/admin/': typeof AdminIndexRoute
   '/articulos/': typeof ArticulosIndexRoute
+  '/admin/articulos/$id': typeof AdminArticulosIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/articulos'
     | '/contacto'
     | '/sitemap.xml'
     | '/sobre-mi'
+    | '/admin/categorias'
     | '/articulos/$slug'
+    | '/uploads/$'
+    | '/admin/'
     | '/articulos/'
+    | '/admin/articulos/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contacto'
     | '/sitemap.xml'
     | '/sobre-mi'
+    | '/admin/categorias'
     | '/articulos/$slug'
+    | '/uploads/$'
+    | '/admin'
     | '/articulos'
+    | '/admin/articulos/$id'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/articulos'
     | '/contacto'
     | '/sitemap.xml'
     | '/sobre-mi'
+    | '/admin/categorias'
     | '/articulos/$slug'
+    | '/uploads/$'
+    | '/admin/'
     | '/articulos/'
+    | '/admin/articulos/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ArticulosRoute: typeof ArticulosRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreMiRoute: typeof SobreMiRoute
+  UploadsSplatRoute: typeof UploadsSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -147,6 +207,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -161,6 +228,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosIndexRouteImport
       parentRoute: typeof ArticulosRoute
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/uploads/$': {
+      id: '/uploads/$'
+      path: '/uploads/$'
+      fullPath: '/uploads/$'
+      preLoaderRoute: typeof UploadsSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/articulos/$slug': {
       id: '/articulos/$slug'
       path: '/$slug'
@@ -168,8 +249,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosSlugRouteImport
       parentRoute: typeof ArticulosRoute
     }
+    '/admin/categorias': {
+      id: '/admin/categorias'
+      path: '/categorias'
+      fullPath: '/admin/categorias'
+      preLoaderRoute: typeof AdminCategoriasRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/articulos/$id': {
+      id: '/admin/articulos/$id'
+      path: '/articulos/$id'
+      fullPath: '/admin/articulos/$id'
+      preLoaderRoute: typeof AdminArticulosIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminCategoriasRoute: typeof AdminCategoriasRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminArticulosIdRoute: typeof AdminArticulosIdRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminCategoriasRoute: AdminCategoriasRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminArticulosIdRoute: AdminArticulosIdRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface ArticulosRouteChildren {
   ArticulosSlugRoute: typeof ArticulosSlugRoute
@@ -187,10 +296,12 @@ const ArticulosRouteWithChildren = ArticulosRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   ArticulosRoute: ArticulosRouteWithChildren,
   ContactoRoute: ContactoRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreMiRoute: SobreMiRoute,
+  UploadsSplatRoute: UploadsSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

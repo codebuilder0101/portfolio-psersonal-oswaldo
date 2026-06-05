@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { M as Mail, e as Clock } from "../_libs/lucide-react.mjs";
+import { M as Mail, g as Clock } from "../_libs/lucide-react.mjs";
 function NewsletterBlock({ compact = false }) {
   const content = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80", children: [

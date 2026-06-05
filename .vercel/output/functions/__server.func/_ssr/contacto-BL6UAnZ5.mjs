@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { a as SiteHeader, S as SiteFooter } from "./site-footer-CmTn1p48.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
-import { M as Mail, U as User, P as Phone, F as Facebook, I as Instagram, f as Linkedin } from "../_libs/lucide-react.mjs";
+import { M as Mail, U as User, o as Phone, F as Facebook, i as Instagram, j as Linkedin } from "../_libs/lucide-react.mjs";
 import { o as objectType, s as stringType, u as unionType, l as literalType } from "../_libs/zod.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";

@@ -2,16 +2,18 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getArticle, getRelated, formatDate } from "@/lib/articles";
+import { formatDate } from "@/lib/articles";
+import { fetchArticle, fetchRelated } from "@/lib/api/content.functions";
 import { ShareBar } from "@/components/share-bar";
 import { NewsletterBlock } from "@/components/newsletter-block";
 import portrait from "@/assets/oswaldo-portrait.jpeg";
 
 export const Route = createFileRoute("/articulos/$slug")({
-  loader: ({ params }) => {
-    const article = getArticle(params.slug);
+  loader: async ({ params }) => {
+    const article = await fetchArticle({ data: { slug: params.slug } });
     if (!article) throw notFound();
-    return { article, related: getRelated(params.slug) };
+    const related = await fetchRelated({ data: { slug: params.slug } });
+    return { article, related };
   },
   head: ({ loaderData }) => {
     const a = loaderData?.article;
@@ -107,6 +109,10 @@ function ArticlePage() {
               if (block.type === "h2") return <h2 key={i}>{block.text}</h2>;
               if (block.type === "h3") return <h3 key={i}>{block.text}</h3>;
               if (block.type === "quote") return <blockquote key={i}>{block.text}</blockquote>;
+              if (block.type === "image")
+                return (
+                  <img key={i} src={block.text} alt="" className="w-full rounded-xl my-2" loading="lazy" />
+                );
               return <p key={i}>{block.text}</p>;
             })}
           </div>
